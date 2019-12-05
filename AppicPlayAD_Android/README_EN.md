@@ -16,7 +16,7 @@
 
 ## <a name="Download">Download</a>
 
-* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.2.aar)
+* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.4.aar)
 * Download [com.liulishuo.filedownload-v1.7.4.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/com.liulishuo.filedownload-v1.7.4.aar)
 
 ## <a name="Preparation">Preparation</a>
