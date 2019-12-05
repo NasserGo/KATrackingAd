@@ -19,7 +19,7 @@
 ## <a name="about">关于</a>
 
 * 支持广告类型：**原生**、**开屏**、**插屏**、**横幅**、**激励视频**
-* 下载[AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.2.aar)
+* 下载[AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.4.aar)
 
 ## <a name="essential">基础SDK接入</a>
 
