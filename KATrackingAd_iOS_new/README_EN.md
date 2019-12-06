@@ -107,7 +107,7 @@ A reference to all third-party sdk dependent libraries has been configured in De
   * Protobuf.framework
 * AppicAppsFlyerLib (Optional, if you need APSDK to dock AppsFlyer as a statistical framework) [download path](https://img.atomhike.com/sdk/Mediation/AppsFlyerLib/AppsFlyerLib.v0.0.4.zip)
 
-* AppicFBAudienceNetwork [download path](https://img.atomhike.com/sdk/Mediation/FBAudienceNetwork/FBAudienceNetwork.v0.0.4.zip)
+* AppicFBAudienceNetwork [download path](https://img.atomhike.com/sdk/Mediation/FBAudienceNetwork/FBAudienceNetwork.v5.6.0.zip)
 * AppicAdjustSdk [download path](https://img.atomhike.com/sdk/Mediation/AdjustSdk/AdjustSdk.v4.17.1.zip)
 * BaiduSDK [download path](https://img.atomhike.com/sdk/Mediation/BaiduSDK/BaiduSDK.v4.64.zip)
 

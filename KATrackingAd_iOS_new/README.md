@@ -111,7 +111,7 @@ Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上�
   * nanopb.framework
   * Protobuf.framework
 * AppicAppsFlyerLib (选加，如果需要KASDK对接AppsFlyer作为统计框架) [下载链接](https://img.atomhike.com/sdk/Mediation/AppsFlyerLib/AppsFlyerLib.v0.0.4.zip)
-* AppicFBAudienceNetwork [下载链接](https://img.atomhike.com/sdk/Mediation/FBAudienceNetwork/FBAudienceNetwork.v0.0.4.zip)
+* AppicFBAudienceNetwork [下载链接](https://img.atomhike.com/sdk/Mediation/FBAudienceNetwork/FBAudienceNetwork.v5.6.0.zip)
 * AppicAdjustSdk [下载链接](https://img.atomhike.com/sdk/Mediation/AdjustSdk/AdjustSdk.v4.17.1.zip)
 * BaiduSDK [下载链接](https://img.atomhike.com/sdk/Mediation/BaiduSDK/BaiduSDK.v4.64.zip)
    
