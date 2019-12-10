@@ -1,7 +1,8 @@
 # 版本发布记录
-## Ver.3.7.2.4
-## Release Date: 2019-12-02
-* 对`application `的`getBaseContext `方法做处理。
+## Ver.3.7.2.5
+## Release Date: 2019-12-10
+* 插屏添加展示回调
+* 优化原生展示效果
 
 ## Ver.3.7.2.2
 ## Release Date: 2019-11-27
