@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/README_EN.md)
-# 当前版本 Ver.3.10.5.9
+# 当前版本 Ver.3.11.1.2
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/ReleaseNote.md)
 # 接入说明
 
@@ -18,6 +18,8 @@ SDK可以通过下文提到的两种方式获取
 
 ### CocoaPods公有仓库安装
 `pod setup`
+### 添加AppicSDK私有仓库(在命令行中执行以下命令)
+`pod repo add AppicAdSpecs https://github.com/KATracking/AppicAdSpecs`
 
 ## 通过CocoaPods集成
 * 在命令行窗口中切换当前工作路径，到你的Xcode工程文件所在目录  
@@ -28,9 +30,13 @@ SDK可以通过下文提到的两种方式获取
 
 `pod init`
 
-* 用文本编译器打开Podfile文件，添加需要依赖的sdk库
-
-`  pod 'AppicSDK'`  
+* 用文本编译器打开Podfile文件，
+* 在文件头部最外层，添加appic sdk私有仓库地址  
+`source 'https://github.com/KATracking/AppicAdSpecs' `  
+* 添加私有库地址后，屏蔽了公有库地址，所以需要添加公有库配置  
+`source 'https://github.com/CocoaPods/Specs.git'`  
+* 添加需要依赖的sdk库  
+`  pod 'AppicSDK_IOS'`  
 `  pod 'AppicAppLovinSDK'`  
 `  pod 'AppicAppsFlyerLib'`  
 `  pod 'AppicGDT'`   
@@ -57,9 +63,9 @@ SDK可以通过下文提到的两种方式获取
 * 用Xcode通过新生成的xcworkspace打开项目，编译测试。此时sdk已经集成完毕
 
 ### 更新SDK版本
-* 当SDK版本时，需要首先在命令行窗口中更新cocoapods代码仓库  
+* 当更新SDK版本时，需要首先在命令行窗口中更新AppicAdSpecs代码仓库  
 
-`pod repo update`
+`pod repo update AppicAdSpecs`
 
 * 在命令行窗口中切换当前工作路径，到你的Xcode工程文件所在目录  
 
@@ -77,7 +83,7 @@ Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上�
 * 如果使用手工集成，请通过以下链接下载对应版本的sdk
   
 #### 广告SDK依赖库
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v3.10.5.9.zip)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v3.11.1.2.zip)
 
 #### 广告平台依赖库
 * AppicInMobiSDK [下载链接](https://img.atomhike.com/sdk/Mediation/InMobiSDK/InMobiSDK.v7.3.0.zip)
