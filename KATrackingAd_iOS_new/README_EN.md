@@ -18,6 +18,9 @@ If you have not installed CocoaPods, please follow the process below.
 ### CocoaPods public warehouse installation
 `pod setup`
 
+### Add private AppicSDK pod repo
+pod repo add AppicAdSpecs https://github.com/KATracking/AppicAdSpecs
+
 ## Integrated with CocoaPods
 * Switch the current working path in the command line window to the directory where your Xcode project file is located. 
 
@@ -27,7 +30,12 @@ If you have not installed CocoaPods, please follow the process below.
 
 `pod init`
 
-* Open the Podfile with a text compiler and add the sdk library which you need to depend on.
+* Open the Podfile with a text editor
+* Add AppicSDK pod repo to the top
+`source 'https://github.com/KATracking/AppicAdSpecs`
+* Adding private repo will cause pod stop using public repo, add this if you still need to use pub repo
+`source 'https://github.com/CocoaPods/Specs.git`
+* **OPTIONAL**: Adding other libs if needed
 
 `  pod 'AppicSDK'`  
 `  pod 'AppicAppLovinSDK'`  
@@ -52,9 +60,10 @@ If you have not installed CocoaPods, please follow the process below.
 * Use Xcode to open the project with the newly generated xcworkspace, compile and test. At this point sdk has been integrated.
 
 ### Update SDK version
-* When updating the SDK version, you first need to update the cocoapods code repository in the command line window.  
 
-`pod repo update`
+* When updating the SDK version, execute the following command.  
+
+`pod repo update AppicAdSpecs`
 
 * Switch the current working path in the command line window to the directory where your Xcode project file is located. 
 
