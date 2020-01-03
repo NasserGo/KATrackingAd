@@ -1,5 +1,5 @@
 > [Chinese Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README.md)
-# Current Ver.3.7.2.9 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/ReleaseNote.md)
+# Current Ver.3.8.0 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/ReleaseNote.md)
 # AppicAd SDK Integration guide
 
 * [Download](#Download)
@@ -16,7 +16,7 @@
 
 ## <a name="Download">Download</a>
 
-* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.9.aar)
+* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.8.0.aar)
 * Download [com.liulishuo.filedownload-v1.7.4.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/com.liulishuo.filedownload-v1.7.4.aar)
 
 ## <a name="Preparation">Preparation</a>
@@ -27,10 +27,9 @@
 	```
 	implementation 'com.android.volley:volley:1.1.0'
 	implementation 'com.android.support:support-v4:26.1.0'
-	implementation(name: 'com.liulishuo.filedownload-v1.7.4', ext: 'aar')
 	implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
 	```
-	If your App has already integrated android-gif-drawable-1.2.6, you can ignore this, or please download at: [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar), and download `com.liulishuo.filedownload-v1.7.4.aar`from [here](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/com.liulishuo.filedownload-v1.7.4.aar)
+	If your App has already integrated android-gif-drawable-1.2.6, you can ignore this, or please download at: [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
 		
 * To initialize SDK, please add the follow line to onCreate delegate of your main activity or Application.
 
@@ -51,9 +50,9 @@
 * `proguard` configuration：
 
 	```
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
-	-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
+	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.Ad
+-keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
+-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
 
 ## <a name="thirdPartySDK">Third party SDKs</a>
@@ -301,4 +300,4 @@ Apart from other ad types, rewarded video uses singleton to automatically load a
 ## <a name="others">etc</a>
 
 * If you wishes to inform users before download starts under cellular network, use this method to enable this feature `APAD.setIsMobileNetworkDirectlyDownload(boolean)`, default is set to `true`
-* supported cpu architecture: `armeabi-v7a`
+* supported cpu architecture: `armeabi-v7a`、`armeabi`、`arm64-v8a`

@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ap.android.atom.sdk.ad.APAD;
-import com.ap.android.atom.sdk.core.APSDK;
+import com.ap.android.trunk.sdk.ad.APAD;
+import com.ap.android.trunk.sdk.core.APSDK;
+
 
 public class LauncherActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,7 +25,6 @@ public class LauncherActivity extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.incentivized).setOnClickListener(this);
         APSDK.init(this, Config.APP_INFO_ID);
         APAD.setIsMobileNetworkDirectlyDownload(true);
-        APAD.useDefaultConfigForSplashIfNoConfigExist(this, "zKyjJJyM");
     }
 
     @Override

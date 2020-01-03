@@ -7,9 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.ap.android.atom.sdk.ad.APBaseAD;
-import com.ap.android.atom.sdk.ad.interstitial.APInterstitial;
-import com.ap.android.atom.sdk.ad.listener.APInterstitialADListener;
+import com.ap.android.trunk.sdk.ad.APBaseAD;
+import com.ap.android.trunk.sdk.ad.interstitial.APInterstitial;
+import com.ap.android.trunk.sdk.ad.listener.APInterstitialADListener;
 
 public class InterstitialActivity extends Activity implements View.OnClickListener {
 

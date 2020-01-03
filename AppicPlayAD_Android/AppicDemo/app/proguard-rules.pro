@@ -115,11 +115,6 @@ public *;  } 
 -dontwarn com.google.android.**
 -dontwarn com.facebook.ads.**
 
-#appicsdk
--keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
--keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
--keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
-
 
 
 #rqsdk
@@ -157,3 +152,9 @@ public *;  } 
 
 # adsdk
 -keep class com.main.** {*;}
+
+
+#apsdk
+-keep class * extends com.ap.android.trunk.sdk.core.base.ad.Ad
+-keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
+-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle

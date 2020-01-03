@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.ap.android.atom.sdk.ad.APBaseAD;
-import com.ap.android.atom.sdk.ad.listener.APNativeADListener;
-import com.ap.android.atom.sdk.ad.nativ.APNative;
-import com.ap.android.atom.sdk.core.utils.LogUtils;
+
+import com.ap.android.trunk.sdk.ad.APBaseAD;
+import com.ap.android.trunk.sdk.ad.listener.APNativeADListener;
+import com.ap.android.trunk.sdk.ad.nativ.APNative;
+import com.ap.android.trunk.sdk.core.utils.LogUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.ap.android.atom.sdk.ad.APBaseAD;
-import com.ap.android.atom.sdk.ad.listener.APSplashADListener;
-import com.ap.android.atom.sdk.ad.splash.APSplash;
+import com.ap.android.trunk.sdk.ad.APBaseAD;
+import com.ap.android.trunk.sdk.ad.listener.APSplashADListener;
+import com.ap.android.trunk.sdk.ad.splash.APSplash;
+
 
 public class SplashActivity extends Activity implements View.OnClickListener {
 

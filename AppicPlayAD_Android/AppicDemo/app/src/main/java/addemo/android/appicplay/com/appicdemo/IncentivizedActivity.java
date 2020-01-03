@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
-import com.ap.android.atom.sdk.ad.listener.APIncentivizedADListener;
-import com.ap.android.atom.sdk.ad.video.APIncentivized;
+import com.ap.android.trunk.sdk.ad.listener.APIncentivizedADListener;
+import com.ap.android.trunk.sdk.ad.video.APIncentivized;
 
 
 public class IncentivizedActivity extends Activity {

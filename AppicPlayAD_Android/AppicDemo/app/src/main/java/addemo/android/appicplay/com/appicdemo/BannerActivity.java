@@ -7,9 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ap.android.atom.sdk.ad.APBaseAD;
-import com.ap.android.atom.sdk.ad.banner.APBanner;
-import com.ap.android.atom.sdk.ad.listener.APBannerADListener;
+import com.ap.android.trunk.sdk.ad.APBaseAD;
+import com.ap.android.trunk.sdk.ad.banner.APBanner;
+import com.ap.android.trunk.sdk.ad.listener.APBannerADListener;
 
 
 public class BannerActivity extends Activity implements View.OnClickListener {

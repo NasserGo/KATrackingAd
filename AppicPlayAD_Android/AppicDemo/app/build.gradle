@@ -47,9 +47,8 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
 
     implementation 'com.android.support:multidex:1.0.0'
-    // implementation(name: 'APSDK_v3.7.2.1', ext: 'aar') // 添加 最新版本的SDK
+     implementation(name: 'APSDK_v3.8.0', ext: 'aar') // 添加 最新版本的SDK
     implementation 'com.android.volley:volley:1.1.0'
-    implementation(name: 'com.liulishuo.filedownload-v1.7.4', ext: 'aar') // 添加filedownload下载库
 
     implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
 

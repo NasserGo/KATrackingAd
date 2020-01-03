@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
-import com.ap.android.atom.sdk.core.APApplication;
+import com.ap.android.trunk.sdk.core.APApplication;
 
 
 public class XApplication extends Application {

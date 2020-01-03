@@ -1,4 +1,9 @@
 # 版本发布记录
+## Ver.3.8.0
+## Release Date: 2020-01-03
+* sdk性能优化
+* 支持cpu架构调整
+
 ## Ver.3.7.2.9
 ## Release Date: 2019-12-20
 * 修复模板原生广告传入的ViewGroup在部分情况下点击无效的bug

@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README_EN.md)
-# 当前版本Ver.3.7.2.9 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/ReleaseNote.md)
+# 当前版本Ver.3.8.0 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/ReleaseNote.md)
 # AppicAd SDK接入说明
 
 * [关于](#about)
@@ -19,7 +19,7 @@
 ## <a name="about">关于</a>
 
 * 支持广告类型：**原生**、**开屏**、**插屏**、**横幅**、**激励视频**
-* 下载[AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.9.aar)
+* 下载[AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.8.0.aar)
 
 ## <a name="essential">基础SDK接入</a>
 
@@ -27,12 +27,11 @@
 
 	```
 	implementation 'com.android.volley:volley:1.1.0'
-    implementation 'com.android.support:support-v4:26.1.0'
-    implementation(name: 'com.liulishuo.filedownload-v1.7.4', ext: 'aar')
-    implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
+   implementation 'com.android.support:support-v4:26.1.0'
+   implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
     
 	```
-	点击下载：[android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)、[com.liulishuo.filedownload-v1.7.4.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/com.liulishuo.filedownload-v1.7.4.aar)
+	点击下载：[android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
 		
 * `applicaton `或入口activity 的`onCreate`回调方法中执行初始化
 
@@ -53,9 +52,9 @@
 * `proguard`配置：
 
 	```
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
-	-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
+	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.Ad
+-keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
+-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
 
 ## <a name="thirdPartySDK">加入第三方平台SDK</a>
@@ -269,4 +268,4 @@
 ## <a name="others">其他</a>
 
 * 如果想在用户在非wifi环境时点击下载类型广告时进行弹窗提醒，那么可以使用方法：`APAD.setIsMobileNetworkDirectlyDownload(boolean)`进行设置，如果不进行设置，那么默认为`true`（亦即在非wifi环境下点击下载类广告时不进行提示而直接下载）。**由于部分广告平台未提供设置方法，所以该设置只在部分广告平台上生效。**
-* 支持架构：只支持：armeabi-v7a, arm64-v8a
+* 支持架构：armeabi-v7a, arm64-v8a、armeabi
