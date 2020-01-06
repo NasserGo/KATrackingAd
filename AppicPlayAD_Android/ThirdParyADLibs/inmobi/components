@@ -1,5 +1,5 @@
 <provider
-            android:name="com.ap.android.atom.sdk.ad.inmobi.InmobiFileProvider"
+            android:name="com.ap.android.trunk.sdk.ad.inmobi.InmobiFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

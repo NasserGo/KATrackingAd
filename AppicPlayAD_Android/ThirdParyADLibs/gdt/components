@@ -3,7 +3,7 @@
         android:required="false" />
 
 <provider
-            android:name="com.ap.android.atom.sdk.ad.gdt.GdtFileProvider"
+            android:name="com.ap.android.trunk.sdk.ad.gdt.GdtFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -11,20 +11,3 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/gdt_file_path" />
         </provider>
-
-        <!-- 声明 SDK 所需要的组件 -->
-        <service
-            android:name="com.qq.e.comm.DownloadService"
-            android:exported="false"/>
-        <!-- 请开发者注意字母的大小写，ADActivity，而不是 AdActivity -->
-        <activity
-            android:name="com.qq.e.ads.ADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
-        <activity
-            android:name="com.qq.e.ads.PortraitADActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.qq.e.ads.LandscapeADActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
