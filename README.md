@@ -1,8 +1,7 @@
-# KATrackingAd SDK Repository
-Welcome To KATrackingSDK Portal
+# AppicAd SDK Repository
+Welcome To AppicAd
 
 # Quick Link
-* [**iOS Native SDK**](https://github.com/KATracking/KATrackingAd/tree/master/KATrackingAd_iOS_new)
-* [**Android Native SDK**](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android)
+* [**iOS SDK**](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_iOS)
+* [**Android SDK**](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_iOS)
 * [**Unity Plugin**](https://github.com/KATracking/KATrackingAd/tree/master/KATrackingAd_Unity) 
-* [**Adobe AIR Plugin**](https://github.com/KATracking/KATrackingAd/tree/master/KATrackingAd_AdobeAir) 
