@@ -1,6 +1,6 @@
-> [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/README_EN.md)
+> [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/SDK_iOS_3.x.x_deprecated/README_EN.md)
 # 当前版本 Ver.3.11.1.3
-[ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/ReleaseNote.md)
+[ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/SDK_iOS_3.x.x_deprecated/ReleaseNote.md)
 # 接入说明
 
 SDK可以通过下文提到的两种方式获取

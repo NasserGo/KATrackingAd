@@ -1,5 +1,5 @@
-> [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/README.md)
-# Current Ver.3.11.1.3 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/ReleaseNote.md)
+> [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/SDK_iOS_3.x.x_deprecated/README.md)
+# Current Ver.3.11.1.3 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/SDK_iOS_3.x.x_deprecated/ReleaseNote.md)
 # Integration Guideline
 
 SDK can be obtained in two ways as mentioned below.
