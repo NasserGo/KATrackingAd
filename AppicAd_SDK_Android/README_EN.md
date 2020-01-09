@@ -1,43 +1,44 @@
-> [Chinese Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README.md)
-# Current Ver.3.8.0 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/ReleaseNote.md)
+> [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README_EN.md)
+# Current Version 4.0
+
+[ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
+
 # AppicAd SDK Integration guide
 
-* [Download](#Download)
-* [Preparation](#Preparation)
-* [Third party SDKs](#thirdPartySDK)
-* [Native Ad](#nativeAD)
-* [Splash Ad](#splashAD)
-* [Interstitial Ad](#interstitialAD)
-* [Banner Ad](#bannerAD)
-* [Rewarded Video](#videoAD)
+* [Overview](#Overview)
+* [Preparation](#essential)
+* [NativeExpress](#nativeAD)
+* [Splash](#splashAD)
 * [Permissions](#permissions)
 * [More](#others)
 
 
-## <a name="Download">Download</a>
+## <a name="Overview">Overview</a>
 
-* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.8.0.aar)
-* Download [com.liulishuo.filedownload-v1.7.4.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/com.liulishuo.filedownload-v1.7.4.aar)
+* The SDK provides two different advertisement formats: **Splash**,**Native**
+* Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.9.aar)
+* Download [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
+* Download [Demo](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
 
-## <a name="Preparation">Preparation</a>
-
+## <a name="essential">Preparation</a>
 * Unzip downloaded file, import aar bundle to your project
+
 * Add the following dependencies to your project `build.gradle`:
 
 	```
 	implementation 'com.android.volley:volley:1.1.0'
-	implementation 'com.android.support:support-v4:26.1.0'
-	implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
+  implementation 'com.android.support:support-v4:26.1.0'
+  implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
 	```
-	If your App has already integrated android-gif-drawable-1.2.6, you can ignore this, or please download at: [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
-		
+
+
 * To initialize SDK, please add the follow line to onCreate delegate of your main activity or Application.
 
 	```
-	APSDK.init(this, "appID");
+	APSDK.init(context, "appID");
 	```
-	**Note**: `appID` is provided by our operator.
-	
+	**Note**:`appID` is provided by our operator.
+
 * Override the `getBaseContext` method of your app's `application`:
 
 	```
@@ -47,248 +48,242 @@
     }
 	```
 
-* `proguard` configuration：
+* `proguard` configuration:
 
 	```
-	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.Ad
--keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
--keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
+	-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
+	-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
+	-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
 
-## <a name="thirdPartySDK">Third party SDKs</a>
-* See here for supported third party network [SDKs](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/ThirdParyADLibs)
-	* `inmobi` - InMobi SDK v7.1.1
-	* `gdt` - Tencent SDK v4.40.910
-	* `tt` - Bytedance SDK v1.9.8.8
-	* `unity` - Unity SDK v3.1.0
-	* `vungle` - Vungle SDK v6.3.24
-	* `admob` - AdMob SDK v8.4.0
-	* `facebook` - Facebook Audience Networks SDK v5.3.1
-* Each network SDK has build.gradle dependencies and permissions configuration, please find these information within each folder respectively.
-
-	**Note**: If you do not want to mediate the SDKs above, simply ignore this secion.
-
-## <a name="nativeAD">Native Ad</a>
-
-There are two available modes to choose from for Native Ad integration: `Template` and `RAW`, select a suitable mode accordingly, Template provides a pre-set view containing main ad asset and attached touch event detection, where RAW offers assets in their original states for you to process and requires to call `registerViewForInteraction` method to inform SDK to add touch event detection.
-
-Native Ad is set to be using Template mode by default, or call `apNativeInstance.setPattern(patternEnum)` method to change.
-
+## <a name="nativeAD">NativeExpress</a>
 1. **Instantiation**
-	
-	To create an instance of Native Ad
-	
-	```
-	APNative apNative = new APNative(activity, "slotID", listener);
-	```
-	
-	Parameters	|	Description
-	---	|	---
-	activity	|	Activity that native ad is being created from
-	slotID	|	Slot ID, provided by operator
-	listener	|	Listener to received call backs
-	
-2. **Main asset size**
-	
-	Set prefered asset size
-	
-	```
-	apNative.setPreferImageSize(width,height)
-	```
-	**Note**：Asset may not always be adjusted to preferred size
-	
-3. **Load ad**
 
-	Load ad by calling this method
-	
+	```java
+	APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
 	```
-	apNative.loadNative();
+	| Parameters	|	Description |
+	| ---	|	--- |
+	| slotID	|	Slot ID, provided by operator |
+	| listener	|	Listener to received call backs |
+
+1. **load**
+
+	```java
+	apNative.load();
 	```
-	
-4. **Access ad asset**
+1. **Once ad is loaded succesfully by receiving load success call back, you can start using ad assets with the following getter methods.**
 
-	Once ad is loaded succesfully by receiving load success call back, you can start using ad 	assets with the following getter methods.
-	
-	Assets	|	Getter
-	---	|	---
-	Image url of icon	|	`getIconUrl`
-	Image url of main screenshot	|	`getImageUrl`
-	Description	|	`getDesc`
-	Title	|	`getTitle`
-	Interation title |	`getActionText`
-	Ad View	|	`getExposureView`
-	
-	**Note**: Title, Description and Icon are all nullable, please ensure verification 	before using them
-	
-		
-1. **Check Ad Type（is video typ or not）**
+	| Description	|	Getter | Note |
+	| ---	|	--- | --- |
+	| icon	|	`getAPAdIcon()` | |
+	| image	|	`getAPAdScreenshot()` | |
+	| description	|	`getAPAdDescription()` | |
+	| title	|	`getAPAdTitle()` ||
+	| video	|	`getAPAdVideo()` |if ad type is not `video`, The return value is null|
 
-	```
-	apNative.isVideoTypeAD();
-	```
+1. **Regist containerView**
+```java
+public boolean registerContainerView(ViewGroup view);
+```
 
-	
-5. **Ad View**
+5. **Set deeplink tip**
+If this method is not called, the deeplink alert will not show
+```java
+public void setDeeplinkTipWithTitle(String title);
+```
 
-	Create the ad view
-	
-	```
-	View v = apNative.getExposureView(viewContainer,viewWidth)
-	```
-	
-	Parameters	|	Description
-	---	|	---
-	viewContainer	|	The view which will contain this Native ad
-	viewWidth	| Use APNative.MATCH_PARENT or specific width in px to adjust ad view size
-	
-	**Note**: This method does NOT add ad view to contain view automatically
-	
-	**Note**: Please make sure that this view is added to container view before ad is about to 	show
-	
-6. **Report impression**
+### Listener
+**`APAdNativeExpressListner`**
 
-	Once ad is displayed to users, please call this method to report ad impression.
-	```
-	apNative.show();
-	```
-	
-7. **Delegate methods of Native Ad**
+```java
+// when NativeExpress ad slot loaded successfully.
+// @param ad: ad for NativeExpress
+public void onApAdNativeExpressDidLoadSuccess(APAdNativeExpress ad);
 
-	Please add the following calls to Activity callbacks respectively
-	* `onPause`：`apNative.onPause();`
-	* `onResume`：`apNative.onResume();`
-	* `onDestroy`：`apNative.onDestroy();`
-	
-8. **Destroy Native**
+// when NativeExpress ad slot failed to load.
+// @param ad: the ad for NativeExpress
+// @param err the reason of error
+public void onApAdNativeExpressDidLoadFail(APAdNativeExpress ad, APAdError err);
 
-	Once a Native ad is no longer needed, use this method to recycle its assets immediately.
+// when NativeExpress is clicked.
+// @param ad the ad for NativeExpress
+public void onApAdNativeExpressDidClick(APAdNativeExpress ad);
 
-	```
-	apNative.destroy();
-	```
+// when NativeExpress  landing  is presented.
+// @param ad: the ad for NativeExpress
+public void onApAdNativeExpressDidPresentLanding(APAdNativeExpress ad);
 
-## <a name="splashAD">Splash Ad</a>
+// when NativeExpress  landing is dismissed.
+// @param ad: the ad for NativeExpress
+public void onApAdNativeExpressDidDismissLanding(APAdNativeExpress ad);
 
+// when NativeExpress will enter background.
+// @param ad: the ad for NativeExpress
+public void onApAdNativeExpressApplicationWillEnterBackground(APAdNativeExpress ad);
+```
+**`APAdNativeExpressVideoView`**
+```java
+// When the video finishes
+// @param view NativeExpressVideo View
+public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView view);
+```
+
+**`APAdNativeExpressVideoState`**
+| State	|	Description |
+| ---	|	--- |
+| `APAdNativeExpressVideoStateDefault`	|	video default state |
+| `APAdNativeExpressVideoStateFailed`	| video play failed |
+| `APAdNativeExpressVideoStateBuffering`	|	video buffering |
+| `APAdNativeExpressVideoStatePlaying`	|	video playing |
+| `APAdNativeExpressVideoStateStop`	|	video playback stopped |
+| `APAdNativeExpressVideoStatePause`	|	video playback paused |
+
+
+
+## <a name="splashAD">APAdSplash</a>
 1. **Instantiation**：
 
-	To create an instance of Splash Ad
-	```
-	APSplash splash = new APSplash(activity,slotID,listener);
-	```
-
-	Parameters	|	Description
-	---	|	---
-	activity	|	Activity that native ad is being created from
-	slotID	|	Slot ID, provided by operator
-	listener	|	Listener to received call backs
-	
-2. **Load and Show**
-	
-	Splash allows you to call this method to load and display and ad.
-	
-	```
-	splash.loadAndPresent(splashViewContainer,bottomViewLayoutID);
-	```
-	
-	Parameters	|	Description
-	---	|	---
-	splashViewContainer	|	ViewGroup for which add ad will be displayed within, e.g. LinearLayout, please make sure that orientation of this view group is set to be vertical
-	bottomViewLayoutID	|	Specify layout id to populate the bottom of screen, if asset is not big enough to fill the entire screen, please make sure your view is adjustable for height as asset height may vary. Use -1 if you do not wish to fill any empty space.
-
-3. **Destroy Splash**
-	
-	Once a Splash ad is no longer needed, use this method to recycle its assets immediately.
-
-	```
-	splash.onDestroy()
+	```java
+	APAdSplash splash = new APAdSplash(slotID,listener);
 	```
 
-4. **AndroidManifest.xml config**
+	| Parameters	|	Description |
+	| --- | --- |
+	| slotID	|	Slot ID, provided by operator |
+	| listener	|	Listener to received call backs |
 
-	Please add these following properties to Splash activty in menifest to ensure that Splash ad 	will not rotate while displayed.
-	
+
+
+	### Load Splash ad
+
+	```java
+	public void load();
 	```
-	android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+
+	#### Show Splash ad
+
+	```java
+	public void presentWithViewContainer(ViewGroup container);
 	```
-	
-	
-## <a name="interstitialAD">Interstitial Ad</a>
+	* **ViewGroup** - ViewGroup for which add ad will be displayed within
 
-1. **Instantiation**
+	#### Load & Show
+	`APAdSplash`
 
-	`APInterstitial apInterstitial = new APInterstitial(activity, "slotID", interstitialListener`
+	```java
+	public void loadAndPresentWithViewContainer(ViewGroup container);
+	```
+	* **ViewGroup** - ViewGroup for which add ad will be displayed within
+	* **Note**:`loadAndPresent` and `load`cannot be used at the same time.
 
-2. **Main asset size**
+	#### Set load duration
+	duration >=0 ，default is 3s.
 
-	`apInterstitial.setPreferImageSize(width, height);`
+	```java
+	public boolean setSplashMaxLoadInterval(int interval); //单位秒
+	```
 
-3. **Load ad**
+	#### Set display duration
 
-	`apInterstitial.loadInterstitial();`
-	
-4. **Show ad**
+	```java
+	public boolean setSplashShowInterval(int interval); //单位秒
+	```
 
-	`apInterstitial.show();`
-	
-5. **Destroy interstitial**
+	#### Set backgroundColor
+	default:black.
+	```java
+	public void setSplashBackgroundColor(int color);
+	```
 
-	Once a Interstitial ad is no longer needed, use this method to recycle its assets immediately.
-	
-	`apInterstitial.onDestroy();`
+	#### Set backgroung image
+	default: None
+	```java
+	public void setSplashBackgroundColor(Bitmap image);
+	```
+	**Note** :The background image will cover the background color
 
-## <a name="bannerAD">Banner Ad</a>
+	#### Customize the close button style
+	```java
+	public void setSplashCloseButtonView(View view);
+	```
 
-1. **Instantiation**
+	#### Customize the close button position
+	```java
+	public void setSplashCloseButtonPosition(ViewGroup.LayoutParams params);
+	```
 
-	`APBanner banner = new APBanner(activity, "slotID", listener);`
-	
-2. **Load**
+	#### Set deeplink tip
+	If this method is not called, the deeplink alert will not show
+	```java
+	public void setDeeplinkTipWithTitle(String title);
+	```
 
-	`banner.loadBanner(bannerContainer);`
-	
-	**Note**: Currently the size of bannerContainer is required to be 300x50 dp
-	
-3. **Hide banner**
+	#### Set botomView
+	```java
+	public void setSplashBottomLayoutView(ViewGroup view, boolean autofit);
+	```
+	**Note**:`NO`:Force display bottomView,`YES`:Automatically adapt according to the size of the material.
+	**Note**:BotomView is invalid in landscape mode
 
-	`banner.hide();`
-	
-4. **Show banner**
+	#### Get splash view
+	```java
+	public View getSplashView();
+	```
 
-	`banner.show()`
-	
-	**Note**: Banner ad will appear in bannerContainer automatically once load success, there is no need to call show method directly. Only use it to make it appear again after being hidden.
-	
-5. **Destroy banner**
+	### Listener
 
-	Once a Banner ad is no longer needed, use this method to recycle its assets immediately.
-	
-	`banner.onDestroy();`。
-	
+	`APAdSplashListener`
 
-## <a name="videoAD">Rewarded Video</a>
+	```java
+	// when Splash ad slot loaded successfully.
+	// @param ad: ad for Splash
+	public void onAPAdSplashLoadSuccess(APAdSplash ad);
 
-Apart from other ad types, rewarded video uses singleton to automatically load ads after SDK successfully initialized.
+	// when Splash ad slot failed to load.
+	// @param ad: the ad for Splash
+	// @param err the reason of error
+	public void onAPAdSplashLoadFail(APAdSplash ad, APAdError err);
 
-1. **Set listener**
+	// when Splash ad slot failed to assemble.
+	// @param ad: the ad for Splash
+	// @param err the reason of error
+	public void onAPAdSplashDidAssembleViewFail(APAdSplash ad, APAdError err);
 
-	`APIncentivized.setListener(apIncentivizedADListener);`
-	
-2. **Set activity**
+	// When splash ad slot presented successfully.
+	// @param ad : the ad for splash
+	public void onAPAdSplashPresentSuccess(APAdSplash ad);
 
-	Use this method to set activity which is to display video ad
-	
-	`APIncentivized.setActivity(currentActivity);`
-	
-3. **Ad availability**
+	// When splash ad slot failed to present.
+	// @param ad : the ad for splash
+	// @param err : the reason of error
+	public void onAPAdSplashPresentFail(APAdSplash ad, APAdError err);
 
-	Use this method to check if a ad is ready to display
-	
-	`APIncentivized.isReady();`
-	
-4. **Show ad**
+	// When splash is clicked.
+	// @param ad : the ad for splash
+	public void onAPAdSplashClick(APAdSplash ad);
 
-	`APIncentivized.showVideoAD(currentActivity);`
-		
+	// When splash landing is presented.
+	// @param ad : the ad for splash
+	public void onApAdSplashDidPresentLanding(APAdSplash ad);
+
+	// When splash landing is dismissed.
+	// @param ad : the ad for splash
+	public void onApAdSplashDidDismissLanding(APAdSplash ad);
+
+	// When application will enter background.
+	// @param ad : the ad for splash
+	public void onApAdSplashApplicationWillEnterBackground(APAdSplash ad)
+
+	// When splash is dismissed.
+	// @param ad the ad for splash
+	public void onAPAdSplashDismiss(APAdSplash ad);
+
+	// When splash did present time left.
+	// @param time : the time for splash to present,  unit s.
+	public void onAPAdSplashPresentTimeLeft(int time);
+	```
+
 ## <a name="permissions">Permissions</a>
 
 * SDK will request for these following permissions
@@ -296,8 +291,6 @@ Apart from other ad types, rewarded video uses singleton to automatically load a
 	* `android.permission.WRITE_EXTERNAL_STORAGE`
 * SDK initialization (`APSDK.init(context,appID,channelID)`) triggers requesting for permissions as part of init process, call this `APCore.setAutoRequestPermission(false)` to stop SDK doing so automatically, please make sure that your code will request for the same permissions at later stage, otherwise SDK may not function properly
 
-
 ## <a name="others">etc</a>
-
 * If you wishes to inform users before download starts under cellular network, use this method to enable this feature `APAD.setIsMobileNetworkDirectlyDownload(boolean)`, default is set to `true`
 * supported cpu architecture: `armeabi-v7a`、`armeabi`、`arm64-v8a`
