@@ -18,7 +18,7 @@
 * The SDK provides two different advertisement formats: **Splash**,**Native**
 * Download [AppicAd SDK](http://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_v3.7.2.9.aar)
 * Download [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
-* Download [Demo](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
+* Download [Demo](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip)
 
 ## <a name="essential">Preparation</a>
 * Unzip downloaded file, import aar bundle to your project
