@@ -64,9 +64,9 @@ APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
 
 ## 加载广告
 
-	```java
-	apNative.load();
-	```
+```java
+apNative.load();
+```
 ## 加载成功后（收到加载成功的回调），从APNative实例中获取广告相关内容
 
 | 说明	|	方法 | 备注 |
@@ -141,9 +141,9 @@ public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView
 
 ## 创建开屏广告实例：
 
-	```java
-	APAdSplash splash = new APAdSplash(slotID,listener);
-	```
+```java
+APAdSplash splash = new APAdSplash(slotID,listener);
+```
 
 | 参数	|	说明 |
 | --- | --- |
@@ -155,7 +155,7 @@ public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView
 
 ```java
 public void load();
-	```
+```
 
 ## 展示广告
 调用下面方法展示广告
@@ -166,8 +166,7 @@ public void presentWithViewContainer(ViewGroup container);
 * **ViewGroup** - 用于展示开屏广告
 
 ## 加载 & 展示广告
-调用下面方法加载并展示开屏广告
-`APAdSplash`
+调用下面方法加载并展示开屏广告 `APAdSplash`
 
 ```java
 public void loadAndPresentWithViewContainer(ViewGroup container);
@@ -235,46 +234,46 @@ public View getSplashView();
 ```
 
 ## 广告回调
-	使用以下回调接收加载广告的事件
+使用以下回调接收加载广告的事件
 
-	`APAdSplashListener`
+`APAdSplashListener`
 
-	```java
-	// 当广告成功填充，并加载完成后触发此回调
-	public void onAPAdSplashLoadSuccess(APAdSplash ad);
+```java
+// 当广告成功填充，并加载完成后触发此回调
+public void onAPAdSplashLoadSuccess(APAdSplash ad);
 
-	// 当广告填充或者加载失败后触发此回调
-	public void onAPAdSplashLoadFail(APAdSplash ad, APAdError err);
+// 当广告填充或者加载失败后触发此回调
+public void onAPAdSplashLoadFail(APAdSplash ad, APAdError err);
 
-	// 当构建广告视图失败后触发
-	public void onAPAdSplashDidAssembleViewFail(APAdSplash ad, APAdError err);
+// 当构建广告视图失败后触发
+public void onAPAdSplashDidAssembleViewFail(APAdSplash ad, APAdError err);
 
-	// 当广告成功展示后触发此回调
-	public void onAPAdSplashPresentSuccess(APAdSplash ad);
+// 当广告成功展示后触发此回调
+public void onAPAdSplashPresentSuccess(APAdSplash ad);
 
-	// 当广告成功展示失败后触发此回调
-	public void onAPAdSplashPresentFail(APAdSplash ad, APAdError err);
+// 当广告成功展示失败后触发此回调
+public void onAPAdSplashPresentFail(APAdSplash ad, APAdError err);
 
-	// 当广告被点击后触发此回调
-	public void onAPAdSplashClick(APAdSplash ad);
+// 当广告被点击后触发此回调
+public void onAPAdSplashClick(APAdSplash ad);
 
-	// 当广告被点击后完成展示落地页
-	public void onApAdSplashDidPresentLanding(APAdSplash ad);
+// 当广告被点击后完成展示落地页
+public void onApAdSplashDidPresentLanding(APAdSplash ad);
 
-	// 当广告加载完毕落地页后关闭落地页
-	public void onApAdSplashDidDismissLanding(APAdSplash ad);
+// 当广告加载完毕落地页后关闭落地页
+public void onApAdSplashDidDismissLanding(APAdSplash ad);
 
-	// 当广点关闭落地页后将跳转出应用
-	public void onApAdSplashApplicationWillEnterBackground(APAdSplash ad)
+// 当广点关闭落地页后将跳转出应用
+public void onApAdSplashApplicationWillEnterBackground(APAdSplash ad)
 
-	// 当广告将已经被关闭后触发此回调
-	public void onAPAdSplashDismiss(APAdSplash ad);
+// 当广告将已经被关闭后触发此回调
+public void onAPAdSplashDismiss(APAdSplash ad);
 
-	// 广告每展示1秒触发一次此回调
-	// 广告自动关闭前一定触发最后一次并且time = 0;
-	// @param time 广告展示停留剩余时间，单位：秒
-	public void onAPAdSplashPresentTimeLeft(int time);
-	```
+// 广告每展示1秒触发一次此回调
+// 广告自动关闭前一定触发最后一次并且time = 0;
+// @param time 广告展示停留剩余时间，单位：秒
+public void onAPAdSplashPresentTimeLeft(int time);
+```
 
 
 # <a name="interstitialAD">接入插屏广告</a>
@@ -283,7 +282,7 @@ public View getSplashView();
 ## 设置期望尺寸
 `apInterstitial.setPreferImageSize(width, height);`
 ## 加载插屏
-	`apInterstitial.loadInterstitial();`
+`apInterstitial.loadInterstitial();`
 ## 展示插屏
 `apInterstitial.show();`
 ## 释放资源
@@ -301,7 +300,7 @@ public View getSplashView();
 `banner.hide();`
 ## 展示banner
 `banner.show()`
-	**注**：banner加载成功之后会立即显示，不需额外调用`show`方法，该方法对应于`hide`方法，用于在调用`hide`方法后，要继续显示banner时使用。
+**注**：banner加载成功之后会立即显示，不需额外调用`show`方法，该方法对应于`hide`方法，用于在调用`hide`方法后，要继续显示banner时使用。
 
 # <a name="rewardedVideoAd">接入激励视频广告</a>
 **注**：激励视频不同于其他广告形式，使用单例模式，无需创建额外实例。
