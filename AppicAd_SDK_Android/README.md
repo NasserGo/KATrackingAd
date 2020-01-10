@@ -30,7 +30,6 @@ implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
 ```
 
 * `applicaton `或入口activity 的`onCreate`回调方法中执行初始化
-
 ```
 APSDK.init(context, "appID");
 ```
@@ -39,9 +38,9 @@ APSDK.init(context, "appID");
 * `applicaton`的`getBaseContext`方法修改：
 ```
 @Override
-  public Context getBaseContext() {
-      return APApplication.getBaseContext(super.getBaseContext());
-  }
+public Context getBaseContext() {
+    return APApplication.getBaseContext(super.getBaseContext());
+}
 ```
 * `proguard`配置：
 
