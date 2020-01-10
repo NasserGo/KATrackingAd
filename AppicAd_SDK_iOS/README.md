@@ -162,7 +162,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 调用下面方法加载广告
 
 ```Objectivec
-[aplash load];
+[splash load];
 ```
 
 #### 展示广告

@@ -47,7 +47,6 @@ end
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
-![XcodeSetting](/assets/XcodeSetting.png)
 
 ### Parameter configuration before initialization on manual integration
 
@@ -81,7 +80,6 @@ end
 * ImageIO.framework
 
 #### Add linker parameter for XCode Find Other Linker Flags in build settings and add flag: `-ObjC` (case sensitive).
-![objc](/assets/objc.png)
 
 #### <a name="whitelist">info.plist Set whitelist</a>
 ```XML
@@ -114,7 +112,7 @@ end
 ```
 
 # <a name="demo">Get the SDK docking demo</a>
-[Download Path](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/Demo.zip)
+[Download Path](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_iOS/AppicAdDemo.zip)
 A reference to all third-party sdk dependent libraries has been configured in Demo. Please follow the steps above to install cocoapods, and execute the `pod install` command on the project path to install sdk. After installation, you can run it.
 
 # <a name="ats">Setup ATS</a>
@@ -126,7 +124,6 @@ Allow the operation of the HTTP connection
     <true/>
 </dict>
 ```
-![ats](/assets/ats.png)
 
 # <a name="initialization">Initialization</a>
 Please initialize SDK as early into app lifecycle as possible, as once SDK initilized it will automatically pre-cashe ads.
@@ -158,7 +155,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 
 #### Load Splash ad
 ```Objectivec
-[aplash load];
+[splash load];
 ```
 
 #### Show Splash Ad
