@@ -1,4 +1,4 @@
-> [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README_EN.md)
+> [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/README.md)
 # Current Version 4.0
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
@@ -17,7 +17,7 @@
 
 * The SDK provides two different advertisement formats: **Splash**,**Native**
 * Download [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.0.aar)
-* Download [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
+* Download [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/android-gif-drawable-1.2.6.aar)
 * Download [Demo](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip
 
 ## <a name="essential">Preparation</a>

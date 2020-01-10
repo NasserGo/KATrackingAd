@@ -1,4 +1,4 @@
-> [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicPlayAD_Android/README_EN.md)
+> [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/README_EN.md)
 # 当前版本 Ver 4.0.0.0
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
@@ -18,7 +18,7 @@
 # <a name="about">关于</a>
 
 * 下载 [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.0.aar)
-* 下载 [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicPlayAD_Android/android-gif-drawable-1.2.6.aar)
+* 下载 [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/android-gif-drawable-1.2.6.aar)
 * 下载 [Demo](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip)
 
 # <a name="essential">SDK接入</a>
