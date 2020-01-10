@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README_EN.md)
-# 当前版本 Ver 4.0
+# 当前版本 Ver 4.0.0.0
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -49,7 +49,7 @@ end
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.zip)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.0.0.zip)
 * 下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
 
 ### Xcode编译选项设置
@@ -127,8 +127,8 @@ end
 ```
 
 # <a name="demo">获取SDK对接Demo</a>
-[下载链接](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_iOS/AppicAdDemo.zip)
-Demo中已经配置了对所有第三方sdk的依赖库的引用，在工程路径执行`pod install`命令进行sdk安装，安装之后即可运行。
+[下载链接](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/Demo.zip)
+Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上面的步骤安装cocoapods，并在工程路径执行`pod install`命令进行sdk安装，安装之后即可运行。
 
 # <a name="initialization">SDK初始化</a>
 请在应用生命周期尽可能早的步骤中启动SDK初始化，这样SDK可以尽快开始预加载广告。
