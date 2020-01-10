@@ -45,7 +45,7 @@ target 'MyApp' do
     pod 'AppicAdSDK'
 end
 ```
-4. 执行`pod initall`;
+4. 执行`pod install`;
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
