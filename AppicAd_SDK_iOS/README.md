@@ -23,39 +23,38 @@
 #### AppId - 应用标识
 在初始化的时候需要使用，请联系运营人员获取。
 
-## 要求
+## iOS系统版本
 - iOS 9.0+
 ## 获取SDK
-我们提供两种方式去集成iOS SDK：使用Cocoapods和手动添加方式。
+我们提供两种方式去集成SDK
+* 使用Cocoapods
 >我们推荐使用cocoapods进行sdk管理
+* 手动添加方式。
 
 ## <a name="cocoapods">使用CocoaPods</a>
 1. 安装[CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
 2. 执行 `pod repo update`，从而让 CocoaPods 更新至目前最新可用的 AppicSDK 版本；
-3. 修改Podfile文件，将`pod 'AppicSDK', '~> 4.0'`添加到Podfile中，如下所示：
+3. 修改Podfile文件，如下所示：
 ```ruby
 platform :ios, '9.0'
-use_frameworks!
+
+source 'https://github.com/KATracking/AppicAdSpecs'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'MyApp' do
-    pod 'AppicSDK', '~> 4.0'
+    pod 'AppicAdSDK'
 end
 ```
 4. 执行`pod initall`;
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v3.10.5.9.zip)
-
-下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
-拖入时，请按以下方式选择：
-![XcodeSetting](https://github.com/KATracking/KATrackingAd/blob/master/README_Res/XcodeSetting4.png)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.0.0.zip)
+* 下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
 
 ### Xcode编译选项设置
 
 * Build Settings中Other Linker Flags 增加参数`-ObjC`
-具体操作如图：
-![objc](https://github.com/KATracking/KATrackingAd/blob/master/README_Res/objc4.png)
 
 #### 添加依赖库
 工程需要在TARGETS -> Build Phases中找到Link Binary With Libraries，点击“+”，依次添加下列依赖库
@@ -85,7 +84,7 @@ end
 * MediaPlayer.framework
 * libresolv.9.tbd
 * libresolv.tbd
-* ImageIO.framework（如果以上依赖库增加完仍旧报错，请添加ImageIO.framework）
+* ImageIO.framework
 
 # <a name="whitelist">info.plist设置白名单</a>
 ```XML
@@ -126,8 +125,6 @@ end
     <true/>
 </dict>
 ```
-具体操作如图：
-![ats](https://github.com/KATracking/KATrackingAd/blob/master/README_Res/ats4.png)
 
 # <a name="demo">获取SDK对接Demo</a>
 [下载链接](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/Demo.zip)
@@ -401,9 +398,178 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 | `APAdNativeExpressVideoStateStop`	|	视频播放停止 |
 | `APAdNativeExpressVideoStatePause`	|	视频播放暂停 |
 
+# <a name="native">插屏广告 - Interstitial </a>
+
+### 构建广告
+创建一个插屏广告的实例
+`APAdInterstitial`
+
+```Objective-c
+APAdInterstitial *interstitial = [[APAdInterstitial alloc] initWithSlot:<AdSlot> delegate:<Delegate>];
+```
+* **AdSlot** - 广告位SlotId，用于请求广告
+* **Delegate** - id<APAdInterstitialDelegate> 实例，用于接收广告事件回调
+
+请求并加载广告
+`APAdInterstitial`
+
+```Objective-c
+[interstitial load];
+```
+
+检测广告是否已经可以使用
+`APAdInterstitial`
+
+```Objective-c
+BOOL ready = [interstitial isReady];
+```
+
+### 展示广告
+调用下面方法加载并展示开屏广告
+`APAdInterstitial`
+
+```Objective-c
+[interstitial presentFromRootViewController:<Controller>];
+```
+* **Controller** - 用于展示插屏广告的UIViewController
+
+### 广告回调
+使用以下回调接收加载广告的事件
+
+`APAdInterstitialDelegate`
+
+```Objective-c
+// Interstitial Ad load success
+- (void) interstitialAdLoadDidSuccess:(nonnull APAdInterstitial*) interstitialAd;
+
+// Interstitial Ad load fail
+- (void) interstitialAdLoadDidFailForSlot:(nonnull NSString*) interstitialAdSlot withError:(nonnull NSError*) interstitialAdStatus;
+
+// Interstitial Ad presented successful
+- (void) interstitialAdDidPresent:(nonnull APAdInterstitial*) interstitial;
 
 
+// Interstitial Ad has been clicked
+- (void) interstitialAdDidClick:(nonnull APAdInterstitial*) splashAd;
 
+// Interstitial Ad has been dismissed from screen
+- (void) interstitialAdDidDismiss:(nonnull APAdInterstitial*) interstitial;
+```
+
+# <a name="native">激励视频广告 - Incentivized</a>
+
+### 如何使用
+激励视频广告在SDK中为单例，因此无需在创建新的实例，可以直接使用类方法展示广告，视频广告在SDK初始化成功后立即开始自动加载。
+
+检测广告是否已经可以使用
+`APAdIncentivized`
+
+```Objective-c
+BOOL ready = [APAdIncentivized isReady];
+```
+
+### 展示广告
+调用下面方法加载并展示极力视频广告
+`APAdIncentivized`
+
+```Objective-c
+[APAdIncentivized presentFromRootViewController:<Controller>];
+```
+* **Controller** - 用于展示激励视频广告的UIViewController
+
+### 广告回调
+设置一个激励视频的回调实例
+`APAdIncentivized`
+
+```Objective-c
+[APAdIncentivized setDelegate:<Delegate>];
+```
+* **Delegate** - id<APAdIncentivizedDelegate> 实例，用于接收广告事件回调
+
+### 广告回调
+使用以下回调接收加载广告的事件
+
+`APAdIncentivizedDelegate`
+
+```Objective-c
+// Incentvized video Ad has failed to present
+- (void) incentivizedAdPresentDidFailWithError:(NSError*)error;
+
+// Incentivized video Ad has presented successful
+- (void) incentivizedAdPresentDidSuccess;
+
+// Incentivized video Ad has complete without skip
+- (void) incentivizedAdPresentDidComplete;
+
+// Incentivized video Ad has complete with skip
+- (void) incentivizedAdPresentDidSkip;
+```
+
+# <a name="native">横幅广告 - Banner</a>
+
+### 构建广告
+创建一个横幅广告的实例并将广告加到视图上
+`APAdBanner`
+
+```Objective-c
+APAdBanner * banner = [[APAdBanner alloc] initWithSlot:<adSlot> withSize:<size> delegate:<delegate> currentController:<controller>];
+[self.view addSubview:banner];
+```
+* **adSlot** - 广告位SlotId，用于请求广告
+* **Size** - 广告尺寸<APAdBannerSize>枚举
+* **Delegate** - id<APAdBannerDelegate> 实例，用于接收广告事件回调
+* **controller** - 用于点击横幅广告后展示广告页的UIViewController
+
+设置广告轮换的时间间隔，当该值小于等于0时广告不轮换
+`APAdBanner`
+
+```Objective-c
+[banner setInterval:<NSInteger>];
+```
+
+请求并加载广告
+`APAdBanner`
+
+```Objective-c
+[banner load];
+```
+
+设置广告的位置
+`APAdBanner`
+```Objective-c
+[banner setPosition:<point>];
+```
+
+* **point** - 设置广告的中心点坐标
+
+### 广告回调
+使用以下回调接收加载广告的事件
+
+`APAdBannerDelegate`
+
+```Objective-c
+/**
+ * Notifies the delegate that the banner has finished loading
+ */
+- (void) bannerAdCompleteLoadingWithAd:(nonnull APAdBanner*)bannerAd;
+/**
+ * Notifies the delegate that the banner has failed to load with some error.
+ */
+- (void) bannerAdFailedLoadingForSlot:(nonnull NSString*)adSlot
+                           withStatus:(nonnull NSError*)nativeAdStatus
+                            andBanner:(nonnull APAdBanner*)bannerAd;
+/**
+ * Notifies the delegate that the banner has finished presenting screen.
+ */
+- (void) bannerDidPresentScreen:(nonnull APAdBanner*)bannerAd;
+
+/**
+ * Notifies the delegate that the banner has dismissed the presented screen.
+ */
+- (void) bannerDidDismissScreen:(nonnull APAdBanner*)bannerAd;
+
+- (void) bannerDidClick:(nonnull APAdBanner*)bannerAd
+```
 
 
 # <a name="errorCode">SDK错误码</a>
