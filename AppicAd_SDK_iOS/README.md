@@ -127,7 +127,7 @@ end
 ```
 
 # <a name="demo">获取SDK对接Demo</a>
-[下载链接](https://github.com/KATracking/KATrackingAd/blob/master/KATrackingAd_iOS_new/Demo.zip)
+[下载链接](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/AppicAd-SDK-iOS-Demo.zip)
 Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上面的步骤安装cocoapods，并在工程路径执行`pod install`命令进行sdk安装，安装之后即可运行。
 
 # <a name="initialization">SDK初始化</a>
@@ -169,7 +169,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 调用下面方法展示广告
 
 ```Objectivec
-[aplash presentWithViewController:<Controller>];
+[splash presentWithViewController:<Controller>];
 ```
 * **Controller** - 用于展示开屏广告的UIViewController
 
@@ -187,7 +187,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 调用下面方法设置广告加载时间，时长必须>=0，默认为3秒
 
 ```Objectivec
-[aplash setSplashMaxLoadInterval:<NSTimeInterval>];
+[splash setSplashMaxLoadInterval:<NSTimeInterval>];
 ```
 
 #### 设置广告显示时长

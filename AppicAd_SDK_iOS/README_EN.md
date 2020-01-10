@@ -43,7 +43,7 @@ end
 ```
 ## <a name="manually">Manually</a>
 ### Download SDK
-* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v3.10.5.9.zip)
+* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.0.0.zip)
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
@@ -112,7 +112,7 @@ end
 ```
 
 # <a name="demo">Get the SDK docking demo</a>
-[Download Path](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_iOS/AppicAdDemo.zip)
+[Download Path](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/AppicAd-SDK-iOS-Demo.zip)
 A reference to all third-party sdk dependent libraries has been configured in Demo. Please follow the steps above to install cocoapods, and execute the `pod install` command on the project path to install sdk. After installation, you can run it.
 
 # <a name="ats">Setup ATS</a>
@@ -160,7 +160,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 
 #### Show Splash Ad
 ```Objectivec
-[aplash presentWithViewController:<Controller>];
+[splash presentWithViewController:<Controller>];
 ```
 * **Controller** - UIViewController for which the splash is presented from
 
@@ -176,7 +176,7 @@ Call the following method to load and display the open screen advertisement
 duration >=0 ，default is 3s.
 
 ```Objectivec
-[aplash setSplashMaxLoadInterval:<NSTimeInterval>];
+[splash setSplashMaxLoadInterval:<NSTimeInterval>];
 ```
 
 #### Set display duration
