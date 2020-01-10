@@ -23,45 +23,44 @@
 
 # <a name="essential">SDK接入</a>
 * 接入工程的`app module`的`build.gradle`中添加依赖：
-	```java
-	implementation 'com.android.volley:volley:1.1.0'
-	implementation 'com.android.support:support-v4:26.1.0'
-	implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
-	```
+```java
+implementation 'com.android.volley:volley:1.1.0'
+implementation 'com.android.support:support-v4:26.1.0'
+implementation(name: 'android-gif-drawable-1.2.6', ext: 'aar')
+```
 
 * `applicaton `或入口activity 的`onCreate`回调方法中执行初始化
 
-	```
-	APSDK.init(context, "appID");
-	```
-	**注**:`appID`的值将在您接入sdk时由我方相关对接人员提供。
+```
+APSDK.init(context, "appID");
+```
+**注**:`appID`的值将在您接入sdk时由我方相关对接人员提供。
 
 * `applicaton`的`getBaseContext`方法修改：
-	```
-	@Override
-    public Context getBaseContext() {
-        return APApplication.getBaseContext(super.getBaseContext());
-    }
-	```
+```
+@Override
+  public Context getBaseContext() {
+      return APApplication.getBaseContext(super.getBaseContext());
+  }
+```
 * `proguard`配置：
 
-	```
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
-	-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
-	```
+```
+-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
+-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
+-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
+```
 
 # <a name="nativeAD">接入原生广告 - NativeExpress</a>
 ## 创建原生广告实例
-
-	```java
-	APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
-	```
-	| 参数	|	说明 |
-	| ---	|	--- |
-	| activity	|	创建该实例所处的activity |
-	| slotID	|	广告位id |
-	| listener	|	原生广告加载结果回调 |
+```
+APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
+```
+| 参数	|	说明 |
+| ---	|	--- |
+| activity	|	创建该实例所处的activity |
+| slotID	|	广告位id |
+| listener	|	原生广告加载结果回调 |
 
 ## 加载广告
 
@@ -70,13 +69,13 @@
 	```
 ## 加载成功后（收到加载成功的回调），从APNative实例中获取广告相关内容
 
-	| 说明	|	方法 | 备注 |
-	| ---	|	--- | --- |
-	| icon	|	`getAPAdIcon()` | |
-	| image	|	`getAPAdScreenshot()` | |
-	| 描述文字	|	`getAPAdDescription()` | |
-	| 标题文字	|	`getAPAdTitle()` ||
-	| 广告视频	|	`getAPAdVideo()` |可以通过此方法的返回值判断广告是否为`视频类型`，非视频返回`null`|
+| 说明	|	方法 | 备注 |
+| ---	|	--- | --- |
+| icon	|	`getAPAdIcon()` | |
+| image	|	`getAPAdScreenshot()` | |
+| 描述文字	|	`getAPAdDescription()` | |
+| 标题文字	|	`getAPAdTitle()` ||
+| 广告视频	|	`getAPAdVideo()` |可以通过此方法的返回值判断广告是否为`视频类型`，非视频返回`null`|
 
 ## 注册容器
 ```java
@@ -146,10 +145,10 @@ public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView
 	APAdSplash splash = new APAdSplash(slotID,listener);
 	```
 
-	| 参数	|	说明 |
-	| --- | --- |
-	| slotID	|	广告位id |
-	| listener	|	开屏广告加载、展示、关闭等的结果回调 |
+| 参数	|	说明 |
+| --- | --- |
+| slotID	|	广告位id |
+| listener	|	开屏广告加载、展示、关闭等的结果回调 |
 
 ## 加载广告
 调用下面方法加载广告
