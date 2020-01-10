@@ -52,7 +52,7 @@
 	```
 
 # <a name="nativeAD">接入原生广告 - NativeExpress</a>
-1. **创建原生广告实例：**
+## 创建原生广告实例
 
 	```java
 	APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
@@ -63,12 +63,12 @@
 	| slotID	|	广告位id |
 	| listener	|	原生广告加载结果回调 |
 
-1. **广告load：**
+## 加载广告
 
 	```java
 	apNative.load();
 	```
-1. **加载成功后（收到加载成功的回调），从APNative实例中获取广告相关内容：**
+## 加载成功后（收到加载成功的回调），从APNative实例中获取广告相关内容
 
 	| 说明	|	方法 | 备注 |
 	| ---	|	--- | --- |
@@ -78,18 +78,19 @@
 	| 标题文字	|	`getAPAdTitle()` ||
 	| 广告视频	|	`getAPAdVideo()` |可以通过此方法的返回值判断广告是否为`视频类型`，非视频返回`null`|
 
-1. **接口-注册容器**
+## 注册容器
 ```java
 public boolean registerContainerView(ViewGroup view);
 ```
 
-5. **接口-设置Deeplink弹窗**
+## 设置Deeplink弹窗
 设置Deeplink弹窗 - 如果不调用此方法设置，则点击广告不弹窗，直接跳转目标应用。
 ```java
 public void setDeeplinkTipWithTitle(String title);
 ```
 
 ## Listener
+
 **`APAdNativeExpressListner`**
 
 ```java
