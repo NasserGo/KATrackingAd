@@ -51,9 +51,9 @@
 * `proguard` configuration:
 
 	```
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.Ad
-	-keep class * extends com.ap.android.atom.sdk.core.base.ad.AdSDK
-	-keep class * implements com.ap.android.atom.sdk.core.base.lifecycle.IApplicationLifecycle
+	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.Ad
+	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
+	-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
 
 ## <a name="nativeAD">NativeExpress</a>
