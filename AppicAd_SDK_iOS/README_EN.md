@@ -223,8 +223,9 @@ If this method is not called, the deeplink alert will not show
 
 #### Get splash view
 ```Objective-c
-[splash getSplashViewWithViewController:<viewcontroller>];
+[splash getSplashViewWithViewController:<controller>];
 ```
+**Note**:`controller` The root view controller for handling ad actions.
 
 ### APAdSplashDelegate
 
