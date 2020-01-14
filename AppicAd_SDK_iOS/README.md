@@ -239,7 +239,7 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delega
 #### 获取广告视图
 获取开屏广告view，可以自行添加到指定界面上进行展示。
 ```Objective-c
-[splash getSplashView];
+[splash getSplashViewWithViewController:<viewcontroller>];
 ```
 
 ### 广告回调

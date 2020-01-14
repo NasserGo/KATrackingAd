@@ -223,7 +223,7 @@ If this method is not called, the deeplink alert will not show
 
 #### Get splash view
 ```Objective-c
-[splash getSplashView];
+[splash getSplashViewWithViewController:<viewcontroller>];
 ```
 
 ### APAdSplashDelegate
