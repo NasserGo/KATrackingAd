@@ -90,7 +90,7 @@ A reference to all third-party sdk dependent libraries has been configured in De
 * AppicVungleSDK [download path](https://img.atomhike.com/sdk/Mediation/VungleSDK/VungleSDK.v0.0.4.zip)
 * AppicAppLovinSDK [download path](https://img.atomhike.com/sdk/Mediation/AppLovinSDK/AppLovinSDK.v0.0.4.zip)
 * AppicIronSource [download path](https://img.atomhike.com/sdk/Mediation/IronSource/IronSource.v6.10.0.0.zip)
-* Appictoutiao [download path](https://img.atomhike.com/sdk/Mediation/toutiao/toutiao.v2.5.1.5.zip)
+* Appictoutiao [download path](https://img.atomhike.com/sdk/Mediation/toutiao/toutiao.v2.4.6.3.999.zip)
   * BUAdSDK.framework
   * BUAdSDK.bundle
 * AppicGDT [download path](https://img.atomhike.com/sdk/Mediation/GDT/GDT.v4.10.13.zip)

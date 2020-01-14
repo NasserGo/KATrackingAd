@@ -92,7 +92,7 @@ Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上�
 * AppicVungleSDK [下载链接](https://img.atomhike.com/sdk/Mediation/VungleSDK/VungleSDK.v0.0.4.zip)
 * AppicAppLovinSDK [下载链接](https://img.atomhike.com/sdk/Mediation/AppLovinSDK/AppLovinSDK.v0.0.4.zip)
 * AppicIronSource [下载链接](https://img.atomhike.com/sdk/Mediation/IronSource/IronSource.v6.10.0.0.zip)
-* Appictoutiao [下载链接](https://img.atomhike.com/sdk/Mediation/toutiao/toutiao.v2.5.1.5.zip)
+* Appictoutiao [下载链接](https://img.atomhike.com/sdk/Mediation/toutiao/toutiao.v2.4.6.3.999.zip)
   * BUAdSDK.framework
   * BUAdSDK.bundle
 * AppicGDT [下载链接](https://img.atomhike.com/sdk/Mediation/GDT/GDT.v4.10.13.zip)
