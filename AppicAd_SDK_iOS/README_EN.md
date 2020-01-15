@@ -333,7 +333,7 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 `APAdNativeExpress`
 
 ```ObjectiveC
-- (BOOL)registerContainer:(__kindof UIView *)view;
+- (BOOL)registerContainerView:(__kindof UIView *)view;
 ```
 * **view** - Register the container view of the native ad, must pass parameters
 

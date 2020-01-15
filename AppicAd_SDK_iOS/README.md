@@ -322,7 +322,7 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 `APAdNativeExpress`
 
 ```ObjectiveC
-- (BOOL)registerContainer:(__kindof UIView *)view;
+- (BOOL)registerContainerView:(__kindof UIView *)view;
 ```
 * **view** - 注册原生广告的容器视图，必传参数
 
