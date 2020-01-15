@@ -156,7 +156,7 @@ Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上�
 创建一个开屏广告的实例：`APAdSplash`
 
 ```ObjectiveC
-APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
+APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
 ```
 * **SlotId** - 广告位id，用于请求广告
 * **Delegate** - id<APAdSplashDelegate> 实例，用于接收广告事件回调

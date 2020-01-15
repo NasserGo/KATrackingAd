@@ -148,7 +148,7 @@ Call for the `APSDK` initialization method in `AppDelegate`
 To create a Splash ad instance：`APAdSplash`
 
 ```ObjectiveC
-APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
+APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
 ```
 * **SlotId** - Slot ID to request ad with
 * **Delegate** - APAdSplashDelegate，receive delegate calls
