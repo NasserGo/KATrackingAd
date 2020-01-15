@@ -2,7 +2,8 @@
 
 ## Ver 4.0.1.0
 ## Release Date: 2020-01-15
-* 修改bug
+* 优化开屏展示效果
+* 添加开屏广告在获取View进行展示时指定落地页弹出controller
 
 ## Ver 4.0
 ## Release Date: 2020-01-10
