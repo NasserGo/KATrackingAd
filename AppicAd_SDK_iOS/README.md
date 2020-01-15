@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README_EN.md)
-# 当前版本 Ver 4.0.0.0
+# 当前版本 Ver 4.0.1.0
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -49,7 +49,7 @@ end
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.0.0.zip)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.1.0.zip)
 * 下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
 
 ### Xcode编译选项设置

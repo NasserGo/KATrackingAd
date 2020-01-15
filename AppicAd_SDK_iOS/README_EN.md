@@ -1,5 +1,5 @@
 > [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README.md)
-# Current Version 4.0
+# Current Version 4.0.1.0
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -43,7 +43,7 @@ end
 ```
 ## <a name="manually">Manually</a>
 ### Download SDK
-* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.0.0.zip)
+* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.1.0.zip)
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
