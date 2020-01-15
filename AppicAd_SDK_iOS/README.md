@@ -13,6 +13,9 @@
 * [SDK初始化](#initialization)
 * [接入 开屏广告-Splash](#splash)
 * [接入 原生广告-Native](#native)
+* [接入 插屏广告-Interstitial](#interstitial)
+* [接入 插屏广告-Incentvized](#incentivized)
+* [接入 插屏广告-Banner](#banner)
 * [SDK错误码](#errorCode)
 * [cocos2d-x播放广告崩溃问题](#cocos2d)
 
@@ -398,7 +401,7 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 | `APAdNativeExpressVideoStateStop`	|	视频播放停止 |
 | `APAdNativeExpressVideoStatePause`	|	视频播放暂停 |
 
-# <a name="native">插屏广告 - Interstitial </a>
+# <a name="interstitial">插屏广告 - Interstitial </a>
 
 ### 构建广告
 创建一个插屏广告的实例
@@ -456,7 +459,7 @@ BOOL ready = [interstitial isReady];
 - (void) interstitialAdDidDismiss:(nonnull APAdInterstitial*) interstitial;
 ```
 
-# <a name="native">激励视频广告 - Incentivized</a>
+# <a name="incentivized">激励视频广告 - Incentivized</a>
 
 ### 如何使用
 激励视频广告在SDK中为单例，因此无需在创建新的实例，可以直接使用类方法展示广告，视频广告在SDK初始化成功后立即开始自动加载。
@@ -505,7 +508,7 @@ BOOL ready = [APAdIncentivized isReady];
 - (void) incentivizedAdPresentDidSkip;
 ```
 
-# <a name="native">横幅广告 - Banner</a>
+# <a name="banner">横幅广告 - Banner</a>
 
 ### 构建广告
 创建一个横幅广告的实例并将广告加到视图上
