@@ -150,7 +150,7 @@ Demo中已经配置了对所有第三方sdk的依赖库的引用，请按照上�
 ```
 请向运营人员索取: **AppId** - 应用标识
 
-# <a name="solash">开屏广告 - Splash</a>
+# <a name="splash">开屏广告 - Splash</a>
 
 #### 构建广告
 创建一个开屏广告的实例：`APAdSplash`
