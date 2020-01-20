@@ -49,7 +49,11 @@ public Context getBaseContext() {
 -keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
 -keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 ```
-
+* `imei`设置
+```java
+public static void setDeviceImei(String imei)
+```
+**注**:`imei`优先使用设备IMEI，如果设备IMEI无法获取，则可以使用开发者设置的IMEI。
 # <a name="nativeAD">接入原生广告 - Native</a>
 ## 创建原生广告实例
 ```

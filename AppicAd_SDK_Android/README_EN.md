@@ -58,6 +58,11 @@
 	-keep class * extends com.ap.android.trunk.sdk.core.base.ad.AdSDK
 	-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
+* `imei`
+	```java
+	public static void setDeviceImei(String imei)
+	```
+
 
 ## <a name="nativeAD">Native</a>
 ### Instantiation
