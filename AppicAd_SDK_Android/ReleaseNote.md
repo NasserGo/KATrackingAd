@@ -1,17 +1,16 @@
 # 版本发布记录
 
 ## Ver 4.0.2.1
-## Release Date: 2020-01-20
+#### Release Date: 2020-01-20
 *  新增设置设备IMEI方法
 * 原生广告接口调整
 
 ## Ver 4.0.1
-## Release Date: 2020-01-15
+#### Release Date: 2020-01-15
 * 已知Bug修复
 
 ## Ver 4.0
-## Release Date: 2020-01-10
+#### Release Date: 2020-01-10
 * 开屏广告接口调整
 * 原生广告接口调整
 * 开屏广告支持不依赖SDK初始化
-

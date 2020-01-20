@@ -43,7 +43,7 @@ end
 ```
 ## <a name="manually">Manually</a>
 ### Download SDK
-* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.1.0.zip)
+* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.1.zip)
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
