@@ -11,7 +11,7 @@
 * [Get SDK Demo](#demo)
 * [Initialization](#initialization)
 * [Splash](#splash)
-* [NativeExpress](#native)
+* [Native](#native)
 * [ErrorCode](#errorCode)
 * [cocos2d-x present ad crash](#cocos2d)
 
@@ -304,17 +304,17 @@ If this method is not called, the deeplink alert will not show
 
 ```
 
-# <a name="native"> NativeExpress </a>
-### Create a NativeExpress Ad
-`APAdNativeExpress`
+# <a name="native"> Native </a>
+### Create a Native Ad
+`APAdNative`
 
 ```Objectivec
-APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
+APAdNative *nativeAd = [[APAdNative alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
 ```
 * **SlotId** - Slot ID to request ad with
-* **Delegate** - APAdNativeExpressDelegate，receive delegate calls
+* **Delegate** - APAdNativeDelegate，receive delegate calls
 
-### Load NativeExpress ad
+### Load Native ad
 ```Objective-c
 [nativeAd load];
 ```
@@ -326,11 +326,11 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 * **ap_adDescription** - ad description
 * **ap_adIcon** - ad icon
 * **ap_adScreenshot** - ad image
-* **ap_adVideo** - ad vide(APAdNativeExpressVideoView)
+* **ap_adVideo** - ad vide(APAdNativeVideoView)
 * **ap_adPresentLandingController** -  The root view controller for handling ad actions.
 
 ### Register clickable view
-`APAdNativeExpress`
+`APAdNative`
 
 ```ObjectiveC
 - (BOOL)registerContainerView:(__kindof UIView *)view;
@@ -343,7 +343,7 @@ If this method is not called, the deeplink alert will not show
 [nativeAd setDeeplinkTipWithTitle:<NSString>];
 ```
 
-## APAdNativeExpressVideoView - methods
+## APAdNativeVideoView - methods
 
 
 | Method	|	Feature | Note |
@@ -355,7 +355,7 @@ If this method is not called, the deeplink alert will not show
 
 # Delegates
 
-## `APAdNativeExpressDelegate`
+## `APAdNativeDelegate`
 
 ```Objectivec
 @optional
@@ -364,64 +364,64 @@ If this method is not called, the deeplink alert will not show
  * Native ad slot loaded successfully.
  * @param ad : the ad for native
  */
-- (void) apAdNativeExpressDidLoadSuccess:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidLoadSuccess:(nonnull APAdNative *)ad;
 
 /**
  * Native ad slot failed to load.
  * @param ad : the ad for native
  * @param err : the reason of error
  */
-- (void) apAdNativeExpressDidLoadFail:(nonnull APAdNativeExpress *)ad withError:(nonnull NSError *)err;
+- (void) apAdNativeDidLoadFail:(nonnull APAdNative *)ad withError:(nonnull NSError *)err;
 
 /**
  * Native ad is clicked.
  * @param ad : the ad for native
  */
-- (void) apAdNativeExpressDidClick:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidClick:(nonnull APAdNative *)ad;
 
 /**
  * Native ad landing page is presented.
  * @param ad : the ad for native
  */
-- (void) apAdNativeExpressDidPresentLanding:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidPresentLanding:(nonnull APAdNative *)ad;
 
 /**
  * Native ad landing page is dismissed.
  * @param ad : the ad for native
  */
-- (void) apAdNativeExpressDidDismissLanding:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidDismissLanding:(nonnull APAdNative *)ad;
 
 /**
  * After ad is clicked, native ad will enter background.
  * @param ad : the ad for native
  */
-- (void) apAdNativeExpressApplicationWillEnterBackground:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeApplicationWillEnterBackground:(nonnull APAdNative *)ad;
 
 ```
 
-## `APAdNativeExpressVideoViewDelegate`
+## `APAdNativeVideoViewDelegate`
 
 ```Objectivec
 @optional
 // Video playback status changes
-// @param view NativeExpressVideo View
-// @param state APAdNativeExpressVideoState
-- (void) apAdNativeExpressVideoView:(nonnull APAdNativeExpressVideoView *)view didChangeState:(APAdNativeExpressVideoState)state;
+// @param view NativeVideo View
+// @param state APAdNativeVideoState
+- (void) apAdNativeVideoView:(nonnull APAdNativeVideoView *)view didChangeState:(APAdNativeVideoState)state;
 
 // Video finishes
-// @param view NativeExpressVideo View
-- (void) apAdNativeExpressVideoViewDidPlayFinish:(nonnull APAdNativeExpressVideoView *)view;
+// @param view NativeVideo View
+- (void) apAdNativeVideoViewDidPlayFinish:(nonnull APAdNativeVideoView *)view;
 ```
 
-### `APAdNativeExpressVideoState`
+### `APAdNativeVideoState`
 | State	|	Description |
 | ---	|	--- |
-| `APAdNativeExpressVideoStateDefault`	|	video default state |
-| `APAdNativeExpressVideoStateFailed`	| video play failed |
-| `APAdNativeExpressVideoStateBuffering`	|	video buffering |
-| `APAdNativeExpressVideoStatePlaying`	|	video playing |
-| `APAdNativeExpressVideoStateStop`	|	video playback stopped |
-| `APAdNativeExpressVideoStatePause`	|	video playback paused |
+| `APAdNativeVideoStateDefault`	|	video default state |
+| `APAdNativeVideoStateFailed`	| video play failed |
+| `APAdNativeVideoStateBuffering`	|	video buffering |
+| `APAdNativeVideoStatePlaying`	|	video playing |
+| `APAdNativeVideoStateStop`	|	video playback stopped |
+| `APAdNativeVideoStatePause`	|	video playback paused |
 
 
 # <a name="errorCode">SDK Error Code</a>

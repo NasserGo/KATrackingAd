@@ -50,10 +50,10 @@ public Context getBaseContext() {
 -keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 ```
 
-# <a name="nativeAD">接入原生广告 - NativeExpress</a>
+# <a name="nativeAD">接入原生广告 - Native</a>
 ## 创建原生广告实例
 ```
-APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
+APAdNative apNative = new APAdNative("slotID", listener);
 ```
 | 参数	|	说明 |
 | ---	|	--- |
@@ -89,50 +89,50 @@ public void setDeeplinkTipWithTitle(String title);
 
 ## Listener
 
-**`APAdNativeExpressListner`**
+**`APAdNativeListner`**
 
 ```java
 // 当广告成功填充，并加载完成后触发此回调
 // @param ad 加载成功的原生广告
-public void onApAdNativeExpressDidLoadSuccess(APAdNativeExpress ad);
+public void onApAdNativeDidLoadSuccess(APAdNative ad);
 
 // 当广告填充或者加载失败后触发此回调
 // @param ad 加载成功的原生广告
 // @param err 加载失败原因
-public void onApAdNativeExpressDidLoadFail(APAdNativeExpress ad, APAdError err);
+public void onApAdNativeDidLoadFail(APAdNative ad, APAdError err);
 
 // 当广告被点击后触发此回调
 // @param ad 被点击的原生广告
-public void onApAdNativeExpressDidClick(APAdNativeExpress ad);
+public void onApAdNativeDidClick(APAdNative ad);
 
 // 当广点击后完成展示落地页
 // @param ad 展示成功的原生广告
-public void onApAdNativeExpressDidPresentLanding(APAdNativeExpress ad);
+public void onApAdNativeDidPresentLanding(APAdNative ad);
 
 // 当广告加载完毕落地页后关闭落地页
 // @param ad 展示失败的原生广告
-public void onApAdNativeExpressDidDismissLanding(APAdNativeExpress ad);
+public void onApAdNativeDidDismissLanding(APAdNative ad);
 
 // 当广告点击后将跳转出应用
 // @param ad 展示成功的原生广告
-public void onApAdNativeExpressApplicationWillEnterBackground(APAdNativeExpress ad);
+public void onApAdNativeApplicationWillEnterBackground(APAdNative ad);
 ```
-**`APAdNativeExpressVideoView`**
+**`APAdNativeVideoView`**
 ```java
 // 当视频播放完毕
 // @param view 视频素材元件播放视图
-public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView view);
+public void onApAdNativeVideoViewDidPlayFinish(APAdNativeVideoView view);
 ```
 
-**`APAdNativeExpressVideoState`**
+**`APAdNativeVideoState`**
 | 名称	|	备注 |
 | ---	|	--- |
-| `APAdNativeExpressVideoStateDefault`	|	视频初始化默认状态 |
-| `APAdNativeExpressVideoStateFailed`	| 播放失败 |
-| `APAdNativeExpressVideoStateBuffering`	|	视频缓冲中 |
-| `APAdNativeExpressVideoStatePlaying`	|	视频播放中 |
-| `APAdNativeExpressVideoStateStop`	|	视频播放停止 |
-| `APAdNativeExpressVideoStatePause`	|	视频播放暂停 |
+| `APAdNativeVideoStateDefault`	|	视频初始化默认状态 |
+| `APAdNativeVideoStateFailed`	| 播放失败 |
+| `APAdNativeVideoStateBuffering`	|	视频缓冲中 |
+| `APAdNativeVideoStatePlaying`	|	视频播放中 |
+| `APAdNativeVideoStateStop`	|	视频播放停止 |
+| `APAdNativeVideoStatePause`	|	视频播放暂停 |
 
 
 

@@ -290,16 +290,16 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" andDelegate:<Del
 - (void) apAdSplashDidPresentTimeLeft:(NSUInteger)time;
 ```
 
-# <a name="native">原生广告 - NativeExpress </a>
+# <a name="native">原生广告 - Native </a>
 ### 构建广告
 创建一个原生广告的实例
-`APAdNativeExpress`
+`APAdNative`
 
 ```Objectivec
-APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
+APAdNative *nativeAd = [[APAdNative alloc] initWithSlot:@"SlotId" andDelegate:<Delegate>];
 ```
 * **SlotId** - 广告位Id，用于请求广告
-* **Delegate** - APAdNativeExpressDelegate 实例，用于接收请求广告的回调
+* **Delegate** - APAdNativeDelegate 实例，用于接收请求广告的回调
 
 ### 加载广告
 调用load方法来获取广告，并通过回调来判断广告是否请求成功
@@ -315,11 +315,11 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 * **ap_adDescription** - 广告文字说明
 * **ap_adIcon** - 广告图标图片的UIImage
 * **ap_adScreenshot** - 广告大图的UIImage
-* **ap_adVideo** - 广告视频的APAdNativeExpressVideoView
+* **ap_adVideo** - 广告视频的APAdNativeVideoView
 * **ap_adPresentLandingController** - 广告位展示落地页通过rootviewController进行跳转
 
 ### 注册可点击视图
-`APAdNativeExpress`
+`APAdNative`
 
 ```ObjectiveC
 - (BOOL)registerContainerView:(__kindof UIView *)view;
@@ -332,7 +332,7 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 [nativeAd setDeeplinkTipWithTitle:<NSString>];
 ```
 
-## APAdNativeExpressVideoView - 接口
+## APAdNativeVideoView - 接口
 原生广告视频素材元件对接接口
 
 | 接口	|	说明 | 备注 |
@@ -345,61 +345,61 @@ APAdNativeExpress *nativeAd = [[APAdNativeExpress alloc] initWithSlot:@"SlotId" 
 
 # 回调
 使用以下回调接收加载广告成功和失败的事件
-## `APAdNativeExpressDelegate`
+## `APAdNativeDelegate`
 
 ```Objectivec
 @optional
 
 // 当广告成功填充，并加载完成后触发此回调
 // @param ad 加载成功的原生广告
-- (void) apAdNativeExpressDidLoadSuccess:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidLoadSuccess:(nonnull APAdNative *)ad;
 
 // 当广告填充或者加载失败后触发此回调
 // @param ad 加载成功的原生广告
 // @param err 加载失败原因
-- (void) apAdNativeExpressDidLoadFail:(nonnull APAdNativeExpress *)ad withError:(nonnull NSError *)err;
+- (void) apAdNativeDidLoadFail:(nonnull APAdNative *)ad withError:(nonnull NSError *)err;
 
 // 当广告被点击后触发此回调
 // @param ad 被点击的原生广告
-- (void) apAdNativeExpressDidClick:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidClick:(nonnull APAdNative *)ad;
 
 // 当广点击后完成展示落地页
 // @param ad 展示成功的原生广告
-- (void) apAdNativeExpressDidPresentLanding:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidPresentLanding:(nonnull APAdNative *)ad;
 
 // 当广告加载完毕落地页后关闭落地页
 // @param ad 展示失败的原生广告
-- (void) apAdNativeExpressDidDismissLanding:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeDidDismissLanding:(nonnull APAdNative *)ad;
 
 // 当广告关闭落地页后将跳转出应用
 // @param ad 展示成功的原生广告
-- (void) apAdNativeExpressApplicationWillEnterBackground:(nonnull APAdNativeExpress *)ad;
+- (void) apAdNativeApplicationWillEnterBackground:(nonnull APAdNative *)ad;
 
 ```
 
-## `APAdNativeExpressVideoViewDelegate`
+## `APAdNativeVideoViewDelegate`
 
 ```Objectivec
 @optional
 // 当视频播放状态产生变化
 // @param view 视频素材元件播放视图
 // @param state 改变后的播放状态
-- (void) apAdNativeExpressVideoView:(nonnull APAdNativeExpressVideoView *)view didChangeState:(APAdNativeExpressVideoState)state;
+- (void) apAdNativeVideoView:(nonnull APAdNativeVideoView *)view didChangeState:(APAdNativeVideoState)state;
 
 // 当视频播放完毕
 // @param view 视频素材元件播放视图
-- (void) apAdNativeExpressVideoViewDidPlayFinish:(nonnull APAdNativeExpressVideoView *)view;
+- (void) apAdNativeVideoViewDidPlayFinish:(nonnull APAdNativeVideoView *)view;
 ```
 
-### `APAdNativeExpressVideoState`
+### `APAdNativeVideoState`
 | 名称	|	备注 |
 | ---	|	--- |
-| `APAdNativeExpressVideoStateDefault`	|	视频初始化默认状态 |
-| `APAdNativeExpressVideoStateFailed`	| 播放失败 |
-| `APAdNativeExpressVideoStateBuffering`	|	视频缓冲中 |
-| `APAdNativeExpressVideoStatePlaying`	|	视频播放中 |
-| `APAdNativeExpressVideoStateStop`	|	视频播放停止 |
-| `APAdNativeExpressVideoStatePause`	|	视频播放暂停 |
+| `APAdNativeVideoStateDefault`	|	视频初始化默认状态 |
+| `APAdNativeVideoStateFailed`	| 播放失败 |
+| `APAdNativeVideoStateBuffering`	|	视频缓冲中 |
+| `APAdNativeVideoStatePlaying`	|	视频播放中 |
+| `APAdNativeVideoStateStop`	|	视频播放停止 |
+| `APAdNativeVideoStatePause`	|	视频播放暂停 |
 
 # <a name="interstitial">插屏广告 - Interstitial </a>
 

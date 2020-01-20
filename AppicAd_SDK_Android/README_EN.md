@@ -7,7 +7,7 @@
 
 * [Overview](#Overview)
 * [Preparation](#essential)
-* [NativeExpress](#nativeAD)
+* [Native](#nativeAD)
 * [Splash](#splashAD)
 * [Interstitial Ad](#interstitialAD)
 * [Banner Ad](#bannerAD)
@@ -59,11 +59,11 @@
 	-keep class * implements com.ap.android.trunk.sdk.core.base.lifecycle.IApplicationLifecycle
 	```
 
-## <a name="nativeAD">NativeExpress</a>
+## <a name="nativeAD">Native</a>
 ### Instantiation
 
 	```java
-	APAdNativeExpress apNative = new APAdNativeExpress("slotID", listener);
+	APAdNative apNative = new APAdNative("slotID", listener);
 	```
 	| Parameters	|	Description |
 	| ---	|	--- |
@@ -97,50 +97,50 @@ public void setDeeplinkTipWithTitle(String title);
 ```
 
 ### Listener
-`APAdNativeExpressListner`
+`APAdNativeListner`
 
 ```java
-// when NativeExpress ad slot loaded successfully.
-// @param ad: ad for NativeExpress
-public void onApAdNativeExpressDidLoadSuccess(APAdNativeExpress ad);
+// when Native ad slot loaded successfully.
+// @param ad: ad for Native
+public void onApAdNativeDidLoadSuccess(APAdNative ad);
 
-// when NativeExpress ad slot failed to load.
-// @param ad: the ad for NativeExpress
+// when Native ad slot failed to load.
+// @param ad: the ad for Native
 // @param err the reason of error
-public void onApAdNativeExpressDidLoadFail(APAdNativeExpress ad, APAdError err);
+public void onApAdNativeDidLoadFail(APAdNative ad, APAdError err);
 
-// when NativeExpress is clicked.
-// @param ad the ad for NativeExpress
-public void onApAdNativeExpressDidClick(APAdNativeExpress ad);
+// when Native is clicked.
+// @param ad the ad for Native
+public void onApAdNativeDidClick(APAdNative ad);
 
-// when NativeExpress  landing  is presented.
-// @param ad: the ad for NativeExpress
-public void onApAdNativeExpressDidPresentLanding(APAdNativeExpress ad);
+// when Native  landing  is presented.
+// @param ad: the ad for Native
+public void onApAdNativeDidPresentLanding(APAdNative ad);
 
-// when NativeExpress  landing is dismissed.
-// @param ad: the ad for NativeExpress
-public void onApAdNativeExpressDidDismissLanding(APAdNativeExpress ad);
+// when Native  landing is dismissed.
+// @param ad: the ad for Native
+public void onApAdNativeDidDismissLanding(APAdNative ad);
 
-// when NativeExpress will enter background.
-// @param ad: the ad for NativeExpress
-public void onApAdNativeExpressApplicationWillEnterBackground(APAdNativeExpress ad);
+// when Native will enter background.
+// @param ad: the ad for Native
+public void onApAdNativeApplicationWillEnterBackground(APAdNative ad);
 ```
-**`APAdNativeExpressVideoView`**
+**`APAdNativeVideoView`**
 ```java
 // When the video finishes
-// @param view NativeExpressVideo View
-public void onApAdNativeExpressVideoViewDidPlayFinish(APAdNativeExpressVideoView view);
+// @param view NativeVideo View
+public void onApAdNativeVideoViewDidPlayFinish(APAdNativeVideoView view);
 ```
 
-**`APAdNativeExpressVideoState`**
+**`APAdNativeVideoState`**
 | State	|	Description |
 | ---	|	--- |
-| `APAdNativeExpressVideoStateDefault`	|	video default state |
-| `APAdNativeExpressVideoStateFailed`	| video play failed |
-| `APAdNativeExpressVideoStateBuffering`	|	video buffering |
-| `APAdNativeExpressVideoStatePlaying`	|	video playing |
-| `APAdNativeExpressVideoStateStop`	|	video playback stopped |
-| `APAdNativeExpressVideoStatePause`	|	video playback paused |
+| `APAdNativeVideoStateDefault`	|	video default state |
+| `APAdNativeVideoStateFailed`	| video play failed |
+| `APAdNativeVideoStateBuffering`	|	video buffering |
+| `APAdNativeVideoStatePlaying`	|	video playing |
+| `APAdNativeVideoStateStop`	|	video playback stopped |
+| `APAdNativeVideoStatePause`	|	video playback paused |
 
 
 
