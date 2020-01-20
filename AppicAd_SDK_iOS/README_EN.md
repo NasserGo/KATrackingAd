@@ -1,5 +1,5 @@
 > [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README.md)
-# Current Version 4.0.1.0
+# Current Version 4.0.2.1
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
