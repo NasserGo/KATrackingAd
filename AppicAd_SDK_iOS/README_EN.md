@@ -1,5 +1,5 @@
 > [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README.md)
-# Current Version 4.0.2.1
+# Current Version 4.0.2.4
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -43,7 +43,7 @@ end
 ```
 ## <a name="manually">Manually</a>
 ### Download SDK
-* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.1.zip)
+* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.4.zip)
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
@@ -298,7 +298,7 @@ If this method is not called, the deeplink alert will not show
 
 /**
  * Splash ad periodically reports time left for splash impression.
- * @param time : the time for splash to present,  unit s.
+ * @param time : the time for splash to present,  unit ms.
  */
 - (void) apAdSplashDidPresentTimeLeft:(NSUInteger)time;
 

@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README_EN.md)
-# 当前版本 Ver 4.0.2.1
+# 当前版本 Ver 4.0.2.4
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -52,7 +52,7 @@ end
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.1.zip)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.4.zip)
 * 下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
 
 ### Xcode编译选项设置
@@ -284,9 +284,9 @@ APAdSplash *splash = [[APAdSplash alloc] initWithSlot:@"SlotId" andDelegate:<Del
 // 当广告将已经被关闭后触发此回调
 - (void) apAdSplashDidDismiss:(nonnull APAdSplash *)ad;
 
-// 广告每展示1秒触发一次此回调
+// 广告每展示200毫秒触发一次此回调
 // 广告自动关闭前一定触发最后一次并且time = 0;
-// @param time 广告展示停留剩余时间，单位：秒
+// @param time 广告展示停留剩余时间，单位：毫秒
 - (void) apAdSplashDidPresentTimeLeft:(NSUInteger)time;
 ```
 
