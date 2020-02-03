@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/README_EN.md)
-# 当前版本 Ver 4.0.2.3
+# 当前版本 Ver 4.0.2.4
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
 
@@ -17,7 +17,7 @@
 
 # <a name="about">关于</a>
 
-* 下载 [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.2.3.aar)
+* 下载 [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.2.4.aar)
 * 下载 [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/android-gif-drawable-1.2.6.aar)
 * 下载 [Demo](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip)
 
@@ -272,9 +272,9 @@ public void onApAdSplashApplicationWillEnterBackground(APAdSplash ad)
 // 当广告将已经被关闭后触发此回调
 public void onAPAdSplashDismiss(APAdSplash ad);
 
-// 广告每展示1秒触发一次此回调
+// 广告每展示200毫秒触发一次此回调
 // 广告自动关闭前一定触发最后一次并且time = 0;
-// @param time 广告展示停留剩余时间，单位：秒
+// @param time 广告展示停留剩余时间，单位：毫秒
 public void onAPAdSplashPresentTimeLeft(int time);
 ```
 
