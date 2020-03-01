@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README_EN.md)
-# 当前版本 Ver 4.0.2.4
+# 当前版本 Ver 4.1.0.0
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -14,13 +14,13 @@
 * [接入 开屏广告-Splash](#splash)
 * [接入 原生广告-Native](#native)
 * [接入 插屏广告-Interstitial](#interstitial)
-* [接入 插屏广告-Incentvized](#incentivized)
-* [接入 插屏广告-Banner](#banner)
+* [接入 激励视频-RewardVideo](#incentivized)
+* [接入 横幅广告-Banner](#banner)
 * [SDK错误码](#errorCode)
 * [cocos2d-x播放广告崩溃问题](#cocos2d)
 
 # <a name="Overview">概要</a>
-本文描述了iOS开发者如何集成SDK，SDK提供了两种广告形式，包括：Splash(开屏广告)、Native(原生广告)
+本文描述了iOS开发者如何集成SDK，SDK提供了两种广告形式，包括：Splash(开屏广告)、Native(原生广告)、Interstitial(插屏广告)、Incentvized(激励视频)、Banner(横幅广告)
 # 接入说明
 ## 获取账号信息
 #### AppId - 应用标识
@@ -52,7 +52,7 @@ end
 5. 使用由 CocoaPods 生成的 `.xcworkspace` 文件来编写工程。
 ## <a name="manually">手动集成</manually>
 ### 导入SDK
-* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.4.zip)
+* AppicSDK [下载链接](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.1.0.0.zip)
 * 下载SDK后，将`APSDK.framework`文件拖入工程即可，升级SDK时，需要替换更新`APSDK.framework`
 
 ### Xcode编译选项设置
@@ -340,8 +340,6 @@ APAdNative *nativeAd = [[APAdNative alloc] initWithSlot:@"SlotId" andDelegate:<D
 | `- (void) setMute:(BOOL)mute;`	|	设置播放器静音 |mute YES：开启静音，NO：关闭静音 |
 | `- (void) play;`	|	开始播放视频 | |
 | `- (void) pause;`	|	暂停播放视频 | |
-| `- (void) setRepeat:(BOOL)repeat;`	|	设置播放器自动重播 |repeat YES：开启重播，NO：关闭重播 |
-
 
 # 回调
 使用以下回调接收加载广告成功和失败的事件
@@ -407,105 +405,156 @@ APAdNative *nativeAd = [[APAdNative alloc] initWithSlot:@"SlotId" andDelegate:<D
 创建一个插屏广告的实例
 `APAdInterstitial`
 
-```Objective-c
-APAdInterstitial *interstitial = [[APAdInterstitial alloc] initWithSlot:<AdSlot> delegate:<Delegate>];
+```Objectivec
+APAdInterstitial *interstitial = [[APAdInterstitial alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
 ```
-* **AdSlot** - 广告位SlotId，用于请求广告
+* **SlotId** - 广告位SlotId，用于请求广告
 * **Delegate** - id<APAdInterstitialDelegate> 实例，用于接收广告事件回调
 
 请求并加载广告
 `APAdInterstitial`
 
-```Objective-c
+```Objectivec
 [interstitial load];
 ```
 
-检测广告是否已经可以使用
-`APAdInterstitial`
+检测`APAdInterstitial`广告是否已经可以使用
 
-```Objective-c
-BOOL ready = [interstitial isReady];
+```Objectivec
+BOOL ready = [interstitial ap_isReady];
+```
+
+#### 设置Deeplink弹窗
+设置Deeplink弹窗 - 如果不调用此方法设置，则点击广告不弹窗，直接跳转目标应用。
+```Objectivec
+[interstitial setDeeplinkTipWithTitle:<NSString>];
 ```
 
 ### 展示广告
-调用下面方法加载并展示开屏广告
-`APAdInterstitial`
-
+调用下面方法加载并展示`APAdInterstitial`广告
 ```Objective-c
-[interstitial presentFromRootViewController:<Controller>];
+[interstitial presentWithViewController:<UIViewController>];
 ```
-* **Controller** - 用于展示插屏广告的UIViewController
+* **UIViewController** - 用于展示插屏广告的UIViewController
 
 ### 广告回调
 使用以下回调接收加载广告的事件
 
 `APAdInterstitialDelegate`
 
-```Objective-c
-// Interstitial Ad load success
-- (void) interstitialAdLoadDidSuccess:(nonnull APAdInterstitial*) interstitialAd;
+```Objectivec
+// 当广告成功填充，并加载完成后触发此回调
+// @param ad 加载成功的插屏广告
+- (void) apAdInterstitialDidLoadSuccess:(nonnull APAdInterstitial *)ad;
 
-// Interstitial Ad load fail
-- (void) interstitialAdLoadDidFailForSlot:(nonnull NSString*) interstitialAdSlot withError:(nonnull NSError*) interstitialAdStatus;
+// 当广告填充或者加载失败后触发此回调
+// @param ad 加载失败插屏广告
+// @param err 加载失败原因
+- (void) apAdInterstitialDidLoadFail:(nonnull APAdInterstitial *)ad withError:(nonnull NSError *)err;
 
-// Interstitial Ad presented successful
-- (void) interstitialAdDidPresent:(nonnull APAdInterstitial*) interstitial;
+// 当广告成功展示后触发此回调
+// @param ad 展示成功的插屏广告
+- (void) apAdInterstitialDidPresentSuccess:(nonnull APAdInterstitial *)ad;
 
+// 当广告展示失败后触发此回调
+// @param ad 展示失败的插屏广告
+// @param err 展示失败原因
+- (void) apAdInterstitialDidPresentFail:(nonnull APAdInterstitial *)ad withError:(nonnull NSError *)err;
 
-// Interstitial Ad has been clicked
-- (void) interstitialAdDidClick:(nonnull APAdInterstitial*) splashAd;
+// 当广告被点击后触发此回调
+// @param ad 被点击的插屏广告
+- (void) apAdInterstitialDidClick:(nonnull APAdInterstitial *)ad;
 
-// Interstitial Ad has been dismissed from screen
-- (void) interstitialAdDidDismiss:(nonnull APAdInterstitial*) interstitial;
+// 当展示落地页触发此回调
+// @param ad 展示成功的插屏广告
+- (void) apAdInterstitialDidPresentLanding:(nonnull APAdInterstitial *)ad;
+
+// 当加载完毕落地页后关闭落地页
+// @param ad 展示失败的插屏广告
+- (void) apAdInterstitialDidDismissLanding:(nonnull APAdInterstitial *)ad;
+
+// 当将跳转出应用时触发此回调：跳转到其他app或者AppStore
+// @param ad 展示成功的插屏广告
+- (void) apAdInterstitialApplicationWillEnterBackground:(nonnull APAdInterstitial *)ad;
+
+// 当广告已经关闭后触发此回调
+// @param ad 已经关闭的插屏广告
+- (void) apAdInterstitialDidDismiss:(nonnull APAdInterstitial *)ad;
 ```
 
-# <a name="incentivized">激励视频广告 - Incentivized</a>
+# <a name="incentivized">激励视频广告 - RewardVideo</a>
 
-### 如何使用
-激励视频广告在SDK中为单例，因此无需在创建新的实例，可以直接使用类方法展示广告，视频广告在SDK初始化成功后立即开始自动加载。
 
-检测广告是否已经可以使用
-`APAdIncentivized`
+### 构建广告
+创建一个`APAdRewardVideo`激励视频广告的实例
 
-```Objective-c
-BOOL ready = [APAdIncentivized isReady];
+```Objectivec
+APAdRewardVideo *rewardVideo = [[APAdRewardVideo alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
+```
+* **SlotId** - 广告位SlotId，用于请求广告
+* **Delegate** - id<APAdRewardVideoDelegate> 实例，用于接收广告事件回调
+
+请求并加载`APAdRewardVideo`广告
+
+```Objectivec
+[rewardVideo load];
+```
+
+检测`APAdRewardVideo`广告是否已经可以使用
+
+```Objectivec
+BOOL ready = [rewardVideo ap_isReady];
+```
+
+#### 设置Deeplink弹窗
+设置Deeplink弹窗 - 如果不调用此方法设置，则点击广告不弹窗，直接跳转目标应用。
+```Objectivec
+[rewardVideo setDeeplinkTipWithTitle:<NSString>];
 ```
 
 ### 展示广告
-调用下面方法加载并展示极力视频广告
-`APAdIncentivized`
+调用下面方法加载并展示激励视频
 
 ```Objective-c
-[APAdIncentivized presentFromRootViewController:<Controller>];
+[rewardVideo presentWithViewController:<UIViewController>];
 ```
-* **Controller** - 用于展示激励视频广告的UIViewController
-
-### 广告回调
-设置一个激励视频的回调实例
-`APAdIncentivized`
-
-```Objective-c
-[APAdIncentivized setDelegate:<Delegate>];
-```
-* **Delegate** - id<APAdIncentivizedDelegate> 实例，用于接收广告事件回调
+* **UIViewController** - 用于展示插屏广告的UIViewController
 
 ### 广告回调
 使用以下回调接收加载广告的事件
 
-`APAdIncentivizedDelegate`
+`APAdRewardVideoDelegate`
 
-```Objective-c
-// Incentvized video Ad has failed to present
-- (void) incentivizedAdPresentDidFailWithError:(NSError*)error;
+```Objectivec
+// 当广告成功填充，并加载完成后触发此回调
+// @param ad 加载成功的激励视频广告
+- (void) apAdRewardVideoDidLoadSuccess:(nonnull APAdRewardVideo *)ad;
 
-// Incentivized video Ad has presented successful
-- (void) incentivizedAdPresentDidSuccess;
+// 当广告填充或者加载失败后触发此回调
+// @param ad 加载失败激励视频广告
+// @param err 加载失败原因
+- (void) apAdRewardVideoDidLoadFail:(nonnull APAdRewardVideo *)ad withError:(nonnull NSError *)err;
 
-// Incentivized video Ad has complete without skip
-- (void) incentivizedAdPresentDidComplete;
+// 当广告成功展示后触发此回调
+// @param ad 展示成功的激励视频广告
+- (void) apAdRewardVideoDidPresentSuccess:(nonnull APAdRewardVideo *)ad;
 
-// Incentivized video Ad has complete with skip
-- (void) incentivizedAdPresentDidSkip;
+// 当广告展示失败后触发此回调
+// @param ad 展示失败的激励视频广告
+// @param err 展示失败原因
+- (void) apAdRewardVideoDidPresentFail:(nonnull APAdRewardVideo *)ad withError:(nonnull NSError *)err;
+
+// 当广告被点击后触发此回调
+// @param ad 被点击的激励视频广告
+- (void) apAdRewardVideoDidClick:(nonnull APAdRewardVideo *)ad;
+
+// 当广告已经播放完成-激励条件达成
+// @param ad 激励视频广告
+- (void) apAdRewardVideoDidPlayComplete:(nonnull APAdRewardVideo *)ad;
+
+// 当广告已经关闭后触发此回调
+// @param ad 已经关闭的激励视频广告
+- (void) apAdRewardVideoDidDismiss:(nonnull APAdRewardVideo *)ad;
 ```
 
 # <a name="banner">横幅广告 - Banner</a>

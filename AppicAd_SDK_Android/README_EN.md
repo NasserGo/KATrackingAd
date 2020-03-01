@@ -1,5 +1,5 @@
 > [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/README.md)
-# Current Version 4.0.2.5
+# Current Version 4.1.0.0
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
 
@@ -19,7 +19,7 @@
 ## <a name="Overview">Overview</a>
 
 * The SDK provides two different advertisement formats: **Splash**,**Native**
-* Download [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.2.5.aar)
+* Download [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.1.0.aar)
 * Download [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/android-gif-drawable-1.2.6.aar)
 * Download [Demo](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip
 
@@ -237,9 +237,8 @@ public void setSplashBottomLayoutView(ViewGroup view, boolean autofit);
 public View getSplashView();
 ```
 
-### Listener
+### APAdSplashListener
 
-`APAdSplashListener`
 
 ```java
 // when Splash ad slot loaded successfully.
@@ -290,30 +289,105 @@ public void onAPAdSplashDismiss(APAdSplash ad);
 public void onAPAdSplashPresentTimeLeft(int time);
 ```
 
-## <a name="interstitialAD">Interstitial Ad</a>
+# <a name="interstitialAD">Interstitial</a>
+## Create a Interstitial Ad
+`APInterstitial interstitial = new APInterstitial("slotID", interstitialListener`
 
-1. **Instantiation**
+## Set deeplink tip
+If this method is not called, the deeplink alert will not show
+```java
+public void setDeeplinkTipWithTitle(String title);
+```
+## Load `Interstitial` ad
+```java
+public void load();
+```
 
-	`APInterstitial apInterstitial = new APInterstitial(activity, "slotID", interstitialListener`
+## Show `Interstitial` Ad
 
-2. **Main asset size**
+```java
+public void presentWithViewContainer(Activity activity);
+```
 
-	`apInterstitial.setPreferImageSize(width, height);`
+## Destroy banner
+Once a Banner ad is no longer needed, use this method to recycle its assets immediately.
+`interstitial.onDestroy();`
 
-3. **Load ad**
+## APAdInterstitialListener
 
-	`apInterstitial.loadInterstitial();`
+```java
+// Interstitial ad slot loaded successfully
+public void onAPAdInterstitialLoadSuccess(APAdInterstitial ad);
 
-4. **Show ad**
+// Interstitial ad slot failed to load.
+public void onAPAdInterstitialLoadFail(APAdInterstitial ad, APAdError err);
 
-	`apInterstitial.show();`
+// Interstitial ad slot presented successfully.
+public void onAPAdInterstitialPresentSuccess(APAdInterstitial ad);
 
-5. **Destroy interstitial**
+// Interstitial ad slot failed to present.
+public void onAPAdInterstitialPresentFail(APAdInterstitial ad, APAdError err);
 
-	Once a Interstitial ad is no longer needed, use this method to recycle its assets immediately.
+// Interstitial ad is clicked.
+public void onAPAdInterstitialClick(APAdInterstitial ad);
 
-	`apInterstitial.onDestroy();`
+// Interstitial ad landing is presented.
+public void onApAdInterstitialDidPresentLanding(APAdInterstitial ad);
 
+// Interstitial ad landing is dismissed.
+public void onApAdInterstitialDidDismissLanding(APAdInterstitial ad);
+
+// After ad is clicked, Interstitial ad application will enter background.
+public void onApAdInterstitialApplicationWillEnterBackground(APAdInterstitial ad)
+
+// Interstitial ad is dismissed.
+public void onAPAdInterstitialDismiss(APAdInterstitial ad);
+```
+# <a name="rewardedVideoAd">RewardVideo</a>
+## Create a `APAdRewardVideo` Ad
+`APAdRewardVideo rewardVideo = new APAdRewardVideo("slotID", APAdRewardVideoListener`
+
+## Set deeplink tip
+If this method is not called, the deeplink alert will not show
+```java
+public void setDeeplinkTipWithTitle(String title);
+```
+## Load `APAdRewardVideo` ad
+```java
+public void load();
+```
+
+## Present `APAdRewardVideo` Ad
+
+```java
+public void presentWithViewContainer(Activity activity);
+```
+
+
+## APAdRewardVideoListener
+
+```java
+// RewardVideo ad slot loaded successfully
+public void onAPAdRewardVideoLoadSuccess(APAdRewardVideo ad);
+
+// RewardVideo ad slot failed to load.
+public void onAPAdRewardVideoLoadFail(APAdRewardVideo ad, APAdError err);
+
+// RewardVideo ad slot presented successfully.
+public void onAPAdRewardVideoPresentSuccess(APAdRewardVideo ad);
+
+// RewardVideo ad slot failed to present.
+public void onAPAdRewardVideoPresentFail(APAdRewardVideo ad, APAdError err);
+
+// RewardVideo ad is clicked.
+public void onAPAdRewardVideoClick(APAdRewardVideo ad);
+
+// 当广告已经播放完成 - 激励条件达成
+public void onAPAdRewardVideoDidPlayComplete(APAdRewardVideo ad);
+
+// RewardVideo ad is dismissed.
+public void onAPAdRewardVideoDismiss(APAdRewardVideo ad);
+```
 ## <a name="bannerAD">Banner Ad</a>
 
 1. **Instantiation**
@@ -340,32 +414,7 @@ public void onAPAdSplashPresentTimeLeft(int time);
 
 	Once a Banner ad is no longer needed, use this method to recycle its assets immediately.
 
-	`banner.onDestroy();`。
-
-
-## <a name="videoAD">Rewarded Video</a>
-
-Apart from other ad types, rewarded video uses singleton to automatically load ads after SDK successfully initialized.
-
-1. **Set listener**
-
-	`APIncentivized.setListener(apIncentivizedADListener);`
-
-2. **Set activity**
-
-	Use this method to set activity which is to display video ad
-
-	`APIncentivized.setActivity(currentActivity);`
-
-3. **Ad availability**
-
-	Use this method to check if a ad is ready to display
-
-	`APIncentivized.isReady();`
-
-4. **Show ad**
-
-	`APIncentivized.showVideoAD(currentActivity);`
+	`banner.onDestroy();`.
 
 ## <a name="permissions">Permissions</a>
 

@@ -1,5 +1,5 @@
 > [中文文档](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/README.md)
-# Current Version 4.0.2.4
+# Current Version 4.1.0.0
 
 [ReleaseNote](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_iOS/ReleaseNote.md)
 
@@ -12,6 +12,8 @@
 * [Initialization](#initialization)
 * [Splash](#splash)
 * [Native](#native)
+* [Interstitial](#interstitial)
+* [RewardVideo](#rewardVideo)
 * [ErrorCode](#errorCode)
 * [cocos2d-x present ad crash](#cocos2d)
 
@@ -43,7 +45,7 @@ end
 ```
 ## <a name="manually">Manually</a>
 ### Download SDK
-* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.0.2.4.zip)
+* The first step download the [AppicSDK](https://img.atomhike.com/sdk/Mediation/KASDK/APSDK.v4.1.0.0.zip)
 
 
  just drag `APSDK.framework` to the project tree,`APSDK.framework` need to be replaced when upgrading the SDK
@@ -301,7 +303,6 @@ If this method is not called, the deeplink alert will not show
  * @param time : the time for splash to present,  unit ms.
  */
 - (void) apAdSplashDidPresentTimeLeft:(NSUInteger)time;
-
 ```
 
 # <a name="native"> Native </a>
@@ -351,8 +352,6 @@ If this method is not called, the deeplink alert will not show
 | `- (void) setMute:(BOOL)mute;`	|	Mute player |mute: `YES`mute on，`NO`：mute off |
 | `- (void) play;`	|	Play video | |
 | `- (void) pause;`	|	Pause video | |
-| `- (void) setRepeat:(BOOL)repeat;`	|	Auto repeat |repeat: `YES`auto repeat，`NO`no repeat |
-
 # Delegates
 
 ## `APAdNativeDelegate`
@@ -423,6 +422,152 @@ If this method is not called, the deeplink alert will not show
 | `APAdNativeVideoStateStop`	|	video playback stopped |
 | `APAdNativeVideoStatePause`	|	video playback paused |
 
+# <a name="interstitial">Interstitial </a>
+
+### Create a Interstitial Ad
+
+```Objectivec
+APAdInterstitial *interstitial = [[APAdInterstitial alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
+```
+* **SlotId** - Slot ID to request ad with
+* **Delegate** - APAdInterstitialDelegate，receive delegate calls
+
+Load Interstitial ad
+
+```Objectivec
+[interstitial load];
+```
+Check `APAdInterstitial` is ready
+
+```Objectivec
+BOOL ready = [interstitial ap_isReady];
+```
+
+#### Set deeplink tip
+
+If this method is not called, the deeplink alert will not show
+```Objectivec
+[interstitial setDeeplinkTipWithTitle:<NSString>];
+```
+
+#### Show `APAdInterstitial` Ad
+```Objectivec
+[interstitial presentWithViewController:<UIViewController>];
+```
+* **Controller** - UIViewController for which the interstitial is presented from
+
+
+### APAdInterstitialDelegate
+```Objectivec
+// Interstitial ad slot loaded successfully
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialDidLoadSuccess:(nonnull APAdInterstitial *)ad;
+
+// Interstitial ad slot failed to load.
+// @param ad: the ad for Interstitial
+// @param err: the reason of error
+- (void) apAdInterstitialDidLoadFail:(nonnull APAdInterstitial *)ad withError:(nonnull NSError *)err;
+
+// Interstitial ad slot presented successfully.
+// @param ad: the ad for Interstitial
+- (void) apAdInterstitialDidPresentSuccess:(nonnull APAdInterstitial *)ad;
+
+// Interstitial ad slot failed to present.
+// @param ad the ad for Interstitial
+// @param err the reason of error
+- (void) apAdInterstitialDidPresentFail:(nonnull APAdInterstitial *)ad withError:(nonnull NSError *)err;
+
+// Interstitial ad is clicked.
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialDidClick:(nonnull APAdInterstitial *)ad;
+
+// Interstitial ad landing is presented.
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialDidPresentLanding:(nonnull APAdInterstitial *)ad;
+
+// Interstitial ad landing is dismissed.
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialDidDismissLanding:(nonnull APAdInterstitial *)ad;
+
+// After ad is clicked, Interstitial ad application will enter background.
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialApplicationWillEnterBackground:(nonnull APAdInterstitial *)ad;
+
+// Interstitial ad is dismissed.
+// @param ad the ad for Interstitial
+- (void) apAdInterstitialDidDismiss:(nonnull APAdInterstitial *)ad;
+```
+
+# <a name="rewardVideo">RewardVideo</a>
+
+
+### Create a `APAdRewardVideo` Ad
+
+```Objectivec
+APAdRewardVideo *rewardVideo = [[APAdRewardVideo alloc] initWithSlot:@"SlotId" delegate:<Delegate>];
+```
+* **SlotId** - Slot ID to request ad with
+* **Delegate** - APAdRewardVideoDelegate，receive delegate calls
+
+Load `APAdRewardVideo` ad
+
+```Objectivec
+[rewardVideo load];
+```
+
+Check `APAdRewardVideo` is ready
+```Objectivec
+BOOL ready = [rewardVideo ap_isReady];
+```
+
+#### Set deeplink tip
+If this method is not called, the deeplink alert will not show
+```Objectivec
+[rewardVideo setDeeplinkTipWithTitle:<NSString>];
+```
+
+### Show `APAdRewardVideo` Ad
+
+```Objective-c
+[rewardVideo presentWithViewController:<UIViewController>];
+```
+* **UIViewController** - UIViewController for which the rewardVideo is presented from
+
+### APAdRewardVideoDelegate
+
+`APAdRewardVideoDelegate`
+
+```Objectivec
+// RewardVideo ad slot loaded successfully
+// @param ad: the ad for RewardVideo
+- (void) apAdRewardVideoDidLoadSuccess:(nonnull APAdRewardVideo *)ad;
+
+// RewardVideo ad slot failed to load.
+// @param ad: the ad for RewardVideo
+// @param err: the reason of error
+- (void) apAdRewardVideoDidLoadFail:(nonnull APAdRewardVideo *)ad withError:(nonnull NSError *)err;
+
+// RewardVideo ad slot presented successfully.
+// @param ad: the ad for RewardVideo
+- (void) apAdRewardVideoDidPresentSuccess:(nonnull APAdRewardVideo *)ad;
+
+// RewardVideo ad slot failed to present.
+// @param ad: the ad for RewardVideo
+// @param err: the reason of error
+- (void) apAdRewardVideoDidPresentFail:(nonnull APAdRewardVideo *)ad withError:(nonnull NSError *)err;
+
+// RewardVideo ad is clicked.
+// @param ad: the ad for RewardVideo
+- (void) apAdRewardVideoDidClick:(nonnull APAdRewardVideo *)ad;
+
+// 当广告已经播放完成-激励条件达成
+// @param ad: the ad for RewardVideo
+- (void) apAdRewardVideoDidPlayComplete:(nonnull APAdRewardVideo *)ad;
+
+// RewardVideo ad is dismissed.
+// @param ad: the ad for RewardVideo
+- (void) apAdRewardVideoDidDismiss:(nonnull APAdRewardVideo *)ad;
+```
 
 # <a name="errorCode">SDK Error Code</a>
 

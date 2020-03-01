@@ -1,5 +1,5 @@
 > [English Doc](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/README_EN.md)
-# 当前版本 Ver 4.0.2.5
+# 当前版本 Ver 4.1.0.0
 
 [更新日志](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/ReleaseNote.md)
 
@@ -17,7 +17,7 @@
 
 # <a name="about">关于</a>
 
-* 下载 [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.0.2.5.aar)
+* 下载 [AppicAd SDK](https://sayhey.oss-cn-shanghai.aliyuncs.com/sdk/android/APSDK_AD_v4.1.0.aar)
 * 下载 [android-gif-drawable-1.2.6.aar](https://github.com/KATracking/KATrackingAd/tree/master/AppicAd_SDK_Android/android-gif-drawable-1.2.6.aar)
 * 下载 [Demo](https://github.com/KATracking/KATrackingAd/blob/master/AppicAd_SDK_Android/AppicAd-SDK-Android-Demo.zip)
 
@@ -278,18 +278,112 @@ public void onAPAdSplashDismiss(APAdSplash ad);
 public void onAPAdSplashPresentTimeLeft(int time);
 ```
 
-
 # <a name="interstitialAD">接入插屏广告</a>
 ## 创建插屏实例
-`APInterstitial apInterstitial = new APInterstitial(activity, "slotID", interstitialListener`
-## 设置期望尺寸
-`apInterstitial.setPreferImageSize(width, height);`
-## 加载插屏
-`apInterstitial.loadInterstitial();`
-## 展示插屏
-`apInterstitial.show();`
+`APInterstitial interstitial = new APInterstitial("slotID", interstitialListener`
+
+## 设置Deeplink弹窗
+设置Deeplink弹窗 - 如果不调用此方法设置，则点击广告不弹窗，直接跳转目标应用。
+```java
+public void setDeeplinkTipWithTitle(String title);
+```
+## 加载广告
+调用下面方法加载广告
+```java
+public void load();
+```
+
+## 展示广告
+调用下面方法展示广告
+
+```java
+public void presentWithViewContainer(Activity activity);
+```
+
 ## 释放资源
-在不需要改插屏实例时（每次插屏展示完毕，需要再次展示时需要重新创建插屏实例），需要调用方法：`apInterstitial.onDestroy();`来释放所占用的资源。
+在不需要改插屏实例时（每次插屏展示完毕，需要再次展示时需要重新创建插屏实例），需要调用方法：`interstitial.onDestroy();`来释放所占用的资源。
+
+## 插屏广告回调
+使用以下回调接收加载广告的事件
+`APAdInterstitialListener`
+
+```java
+// 当广告成功填充，并加载完成后触发此回调
+public void onAPAdInterstitialLoadSuccess(APAdInterstitial ad);
+
+// 当广告填充或者加载失败后触发此回调
+public void onAPAdInterstitialLoadFail(APAdInterstitial ad, APAdError err);
+
+// 当广告成功展示后触发此回调
+public void onAPAdInterstitialPresentSuccess(APAdInterstitial ad);
+
+// 当广告成功展示失败后触发此回调
+public void onAPAdInterstitialPresentFail(APAdInterstitial ad, APAdError err);
+
+// 当广告被点击后触发此回调
+public void onAPAdInterstitialClick(APAdInterstitial ad);
+
+// 当展示落地页触发此回调
+public void onApAdInterstitialDidPresentLanding(APAdInterstitial ad);
+
+// 当加载完毕落地页后关闭落地页
+public void onApAdInterstitialDidDismissLanding(APAdInterstitial ad);
+
+// 当将跳转出应用时触发此回调
+public void onApAdInterstitialApplicationWillEnterBackground(APAdInterstitial ad)
+
+// 当广告已经关闭后触发此回调
+public void onAPAdInterstitialDismiss(APAdInterstitial ad);
+```
+# <a name="rewardedVideoAd">接入激励视频广告</a>
+## 创建激励视频实例
+`APAdRewardVideo rewardVideo = new APAdRewardVideo("slotID", APAdRewardVideoListener`
+
+## 设置Deeplink弹窗
+设置Deeplink弹窗 - 如果不调用此方法设置，则点击广告不弹窗，直接跳转目标应用。
+```java
+public void setDeeplinkTipWithTitle(String title);
+```
+## 加载广告
+调用下面方法加载广告
+```java
+public void load();
+```
+
+## 展示广告
+调用下面方法展示广告
+
+```java
+public void presentWithViewContainer(Activity activity);
+```
+
+
+## 激励视频广告回调
+使用以下回调接收加载广告的事件
+`APAdRewardVideoListener`
+
+```java
+// 当广告成功填充，并加载完成后触发此回调
+public void onAPAdRewardVideoLoadSuccess(APAdRewardVideo ad);
+
+// 当广告填充或者加载失败后触发此回调
+public void onAPAdRewardVideoLoadFail(APAdRewardVideo ad, APAdError err);
+
+// 广告展示成功回调
+public void onAPAdRewardVideoPresentSuccess(APAdRewardVideo ad);
+
+// 广告展示失败回调
+public void onAPAdRewardVideoPresentFail(APAdRewardVideo ad, APAdError err);
+
+// 当广告被点击后触发此回调
+public void onAPAdRewardVideoClick(APAdRewardVideo ad);
+
+// 当广告已经播放完成 - 激励条件达成
+public void onAPAdRewardVideoDidPlayComplete(APAdRewardVideo ad);
+
+// 当广告已经关闭后触发此回调
+public void onAPAdRewardVideoDismiss(APAdRewardVideo ad);
+```
 
 # <a name="bannerAD">接入横幅广告</a>
 ## 创建横幅广告实例
@@ -305,16 +399,7 @@ public void onAPAdSplashPresentTimeLeft(int time);
 `banner.show()`
 **注**：banner加载成功之后会立即显示，不需额外调用`show`方法，该方法对应于`hide`方法，用于在调用`hide`方法后，要继续显示banner时使用。
 
-# <a name="rewardedVideoAd">接入激励视频广告</a>
-**注**：激励视频不同于其他广告形式，使用单例模式，无需创建额外实例。
-## 设置激励视频回调
-`APIncentivized.setListener(apIncentivizedListener);`
-## 设置当前需要使用激励视频相关功能的activity
-`APIncentivized.setActivity(currentActivity);`
-## 检查是否有可用的激励视频
-`APIncentivized.isReady();`
-## 展示激励视频广告
-`APIncentivized.showVideoAD(currentActivity);`
+
 
 # <a name="permissions">关于权限申请</a>
 * sdk需要动态申请的权限：`android.permission.READ_PHONE_STATE`、`android.permission.WRITE_EXTERNAL_STORAGE`
